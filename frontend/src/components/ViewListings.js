@@ -54,7 +54,7 @@ const PostList = () => {
 
   return (
     <>
-      <h2>Listing posts</h2>
+      <h2>Garden Listings</h2>
       <form onSubmit={DoFilterTask}>
         <label htmlFor="location">Location:</label>
         <input
@@ -108,19 +108,18 @@ const PostList = () => {
         {posts &&
           posts.map((post, index) => (
             <div className="HomePosts" key={index}>
-              <Link key={post._id} to={`/listing/viewListing/${post._id}`}>
+              <Link key={post._id} to={`/listing/${post._id}`}>
                 <div className="listingTitle">
                   <h1> {post.title}</h1>
                 </div>
                 <div className="images">
                   <img alt={post.tags} src={post.image} />
                 </div>
-                <div className="listingText">
-                  <p>{post.text}</p>
-                  <p>{post.price}</p>
-                </div>
                 <div className="location">
-                  <p>{post.location}</p>
+                  <p>Location: {post.location}</p>
+                </div>
+                <div className="listingText">
+                  <p>Price: {post.price}</p>
                 </div>
               </Link>
             </div>
