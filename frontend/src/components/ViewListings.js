@@ -31,7 +31,7 @@ const PostList = () => {
       );
       const allFilteredPosts = await filteredResponse.json();
       console.log(allFilteredPosts);
-      setPosts(allFilteredPosts)
+      setPosts(allFilteredPosts);
     } catch (err) {
       console.error(err);
     }
@@ -48,7 +48,10 @@ const PostList = () => {
 
   const handleChange2 = (event) => {
     const userInput = { ...filter };
-    userInput[event.target.name] = event.target.value === "" ? event.target.value : parseInt(event.target.value);
+    userInput[event.target.name] =
+      event.target.value === ""
+        ? event.target.value
+        : parseInt(event.target.value);
     setFilter(userInput);
   };
 
@@ -86,7 +89,7 @@ const PostList = () => {
           value={filter.category}
           onChange={handleChange}
         >
-        <option value="">any</option>
+          <option value="">any</option>
           <option value="produce">produce</option>
           <option value="seed">seed</option>
           <option value="live plant">live plant</option>
