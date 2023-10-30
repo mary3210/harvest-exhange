@@ -17,7 +17,7 @@ router.get("/", async (req, res) => {
     //if filter is kept as an empty object, shows all listings
     let filter = {};
     //destructing the listing object
-    let { location, distance, category, subtypes, price} = req.query;
+    let { location, distance, category, subtypes, minprice, maxprice} = req.query;
     //if searching for zipcode and distance, example: url = http://localhost:3000/listing?zipCode=76120&distance=50 
     // api turns zipcode into longitude and latitude
     //store lat & long into zipinfo
@@ -39,12 +39,28 @@ router.get("/", async (req, res) => {
         })
     }
 
+    if (Number(minprice) >= 0 || Number(maxprice) >=0) {
+        filter.price = {
+          ...(minprice && {$gte: Number(minprice)}),
+          ...(maxprice && {$lte: Number(maxprice)})
+        }
+    }
+
+// filtering price - says the max price of the collection and the starting price of the collection
+// const filteredPrice = Listing.aggregate([ 
+//   { "$group": { 
+//       "_id": null,
+//       "max": { "$max": "$price" }, 
+//       "min": { "$min": "$price" } 
+//   }}
+// ])
+
+
     //checks if filter object has zipcoords and category. If category exists in the req.query(url) add category key along with value from the query
     filter = {
         ...filter,
         ...(category && {category: category}),
-        ...(subtypes && {subtypes: subtypes}),
-        ...(price && {price: price})
+        ...(subtypes && {subtypes: subtypes})
     };
 
     console.log(filter);
