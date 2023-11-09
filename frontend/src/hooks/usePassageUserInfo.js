@@ -14,6 +14,7 @@ export const usePassageUserInfo = () => {
       try {
         const userInfo = await getCurrentUser().userInfo();
         setUserInfo(userInfo);
+        console.log(userInfo);
       } catch (err) {
         setUserInfo(undefined);
       } finally {

@@ -1,7 +1,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import { PassageProvider } from "@passageidentity/passage-react";
-
+import { useContext, useState, createContext } from "react";
 import Home from "./views/Home"
 import Login from "./views/Login";
 import Dashboard from "./views/Dashboard";
@@ -9,10 +9,19 @@ import Profile from "./views/Profile";
 import Listing from "./views/Listing";
 import EditListing from "./views/EditListing";
 import CreateListing from "./views/CreateListing";
+import Navbar from "./components/Navbar";
+
 
 function App() {
+  const LoginContext = createContext();
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
+  const [userID, setUserID] = useState("");
   return (
+    <LoginContext.Provider value={{ userID, setUserID}}>
     <PassageProvider appId={process.env.REACT_APP_PASSAGE_APP_ID}>
+       <div>
+    <Navbar />
+    </div>
       <div>
           <Routes>
             <Route path="/" element={<Home />}></Route>
@@ -25,6 +34,7 @@ function App() {
           </Routes>
       </div>
     </PassageProvider>
+    </LoginContext.Provider>
   );
 }
  

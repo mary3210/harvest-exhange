@@ -38,7 +38,7 @@ const ListingSchema = new mongoose.Schema(
         },
         expireAt : {
             type: Date,
-            default: new Date(new Date().setDate(new Date().getDate() + 7)) //expires in 7 days
+            default: new Date(new Date().setDate(new Date().getDate() + 14)) //expires in 7 days
         }
     },
     { timestamps: true }  //Creates an update and created at pathway 

@@ -17,14 +17,12 @@ router.post("/getUserProfile", async (req, res) => {
         const userID = await passage.authenticateRequest(req);
         if (userID) {
             // user is authenticated
-            console.log(userID)
-            const { email, phone, user_metadata } = await passage.user.get(userID);
-            const identifier = email ? email : phone;
-            const getUser = await User.findOne({passage_id: identifier});
+            const getUser = await User.findOne({passage_id: userID});
             if (getUser) {
                 res.status(200).json(getUser);
             } else {
-                // logic to get meta data from passage and create user
+                // logic to get meta data from passage and create user\
+                const { user_metadata } = await passage.user.get(userID);
                 const newUserProfile = await User.create({
                     passage_id: identifier,
                     ...(user_metadata.first_name && {firstname: user_metadata.first_name}),

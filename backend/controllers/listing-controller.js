@@ -66,6 +66,7 @@ router.get("/", async (req, res) => {
     console.log(filter);
     //search listing by whatever is in filter
     const allListing = await Listing.find(filter);
+    console.log(allListing);
     res.status(200).json(allListing);
   } catch (err) {
     res.status(400).json({ error: err });
@@ -100,18 +101,18 @@ router.post("/", async (req, res) => {
         const userID = await passage.authenticateRequest(req);
         if (userID) {
             // user is authenticated
-            const { email, phone, user_metadata } = await passage.user.get(userID);
-            const identifier = email ? email : phone;
-            const getUser = await User.findOne({passage_id: identifier});
+            const getUser = await User.findOne({passage_id: userID});
+            console.log(getUser)
             if (getUser) { 
-                const location = req.body.location
-                console.log(location)
+                req.body.userID = getUser._id;
+                const location = req.body.location;
                 fetch(`https://www.mapquestapi.com/geocoding/v1/address?key=${process.env.GEOCODE_API_KEY}&location=${location}`)
                 .then((res) => res.json())
                 .then( async (json) => {
                     const zipInfo = (json.results[0].locations[0].latLng);
+                    console.log(req.body)
                     req.body.zipCoords = { type: "Point", coordinates: [zipInfo.lng, zipInfo.lat]};
-                    req.body.userID = getUser._id;
+                    
                     const newListing = await Listing.create(req.body);
                     res.status(200).json(newListing);
                 }).catch((err) => {

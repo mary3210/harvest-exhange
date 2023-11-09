@@ -8,7 +8,8 @@ const PostList = () => {
     location: "",
     distance: "",
     category: "",
-    price: "",
+    minprice: "",
+    maxprice: ""
   });
 
   const getPosts = async () => {
@@ -94,11 +95,20 @@ const PostList = () => {
           <option value="seed">seed</option>
           <option value="live plant">live plant</option>
         </select>
-        <label htmlFor="price">Price:</label>
+        <label htmlFor="minprice">min:</label>
         <input
           type="Number"
-          id="price"
-          name="price"
+          id="minprice"
+          name="minprice"
+          min="0"
+          onChange={handleChange2}
+        ></input>
+        <label htmlFor="maxprice">max:</label>
+        <input
+          type="Number"
+          id="maxprice"
+          name="maxprice"
+          min="0"
           onChange={handleChange2}
         ></input>
         {/* <input type="range" name="price" min="0" max="100" defaultValue="0" onChange={handleChange2} className="slider" id="myRange"></input> */}
