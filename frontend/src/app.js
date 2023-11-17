@@ -10,7 +10,7 @@ import Listing from "./views/Listing";
 import EditListing from "./views/EditListing";
 import CreateListing from "./views/CreateListing";
 import Navbar from "./components/Navbar";
-
+import ViewUsersListings from "./components/ViewUsersListings";
 
 function App() {
   const LoginContext = createContext();
@@ -28,6 +28,7 @@ function App() {
             <Route path="/listing/:id" element={<Listing />}></Route>
             <Route path="/listing/CreateListing" element={<CreateListing/>}></Route>
             <Route path="/listing/EditListing" element={<EditListing/>}></Route>
+            <Route path="/listing/viewmylisting" element={<ViewUsersListings />}></Route>
             <Route path="/login" element={<Login />}></Route>
             <Route path="/login/welcome" element={<Dashboard />}></Route>
             <Route path="/profile" element={<Profile />}></Route>
