@@ -1,6 +1,7 @@
 import React from 'react'
 import { useNavigate } from "react-router-dom";
 import { useState } from 'react';
+import UploadImage from '../components/UploadImage';
 
 function CreateListing() {
   const [post, setPost] = useState([]);
@@ -16,6 +17,12 @@ function CreateListing() {
   });
 const URL = "http://localhost:8000"
 
+const setImage = (newImage) => {
+  setPostform((prev) => ({
+    ...prev,
+    image: newImage,
+  }));
+}
 const handleChange = (e) => {
   const userInput = { ...postForm };
   userInput[e.target.name] = e.target.value;
@@ -97,10 +104,13 @@ try {
                 />
               </label>
               </div>
+             
               <div className="imageinput">
+              {/* <UploadImage uploadedImage={setImage} /> */}
                 <label>
                   Image:
-                  <input
+                  <UploadImage uploadedImage={setImage} />
+                  {/* <input
                     type="url"
                     placeholder="url"
                     id="image"
@@ -108,6 +118,7 @@ try {
                     value={postForm.image}
                     onChange={handleChange}
                   />
+                </label> */}
                 </label>
               </div>
             <div className="txt">
