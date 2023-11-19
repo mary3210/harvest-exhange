@@ -8,7 +8,7 @@ import styles from "../styles/App.module.css";
 function Login() {
   return (
     <div className={styles.mainContainer}>
-    <PassageUnAuthGuard authComp={<Navigate to="/login" />}>
+    <PassageUnAuthGuard authComp={<Navigate to="/" />}>
       <PassageAuth />
     </PassageUnAuthGuard>
     </div>

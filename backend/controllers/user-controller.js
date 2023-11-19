@@ -11,7 +11,7 @@ const passage = new Passage({
     authStrategy: "HEADER",
 });
 
-router.post("/getUserProfile", async (req, res) => {
+router.get("/getUserProfile", async (req, res) => {
     try {
         //retrieving info from passage
         const userID = await passage.authenticateRequest(req);

@@ -84,7 +84,7 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-//retrieve information from one Listing by their user ID
+//retrieve information from one all Listings by their user ID
 router.get("/user/:id", async (req, res) => {
   try {
     const getUserListings = await Listing.find({ userID: req.params.id });
@@ -135,7 +135,7 @@ router.put("/:id", async (req, res) => {
     if (userID) {
         const { email, phone, user_metadata } = await passage.user.get(userID);
         const identifier = email ? email : phone;
-        const getUser = await User.findOne({passage_id: identifier});
+        const getUser = await User.findOne({passage_id: userID});
         if (getUser) {
         if (req.body.location){
             await fetch(`https://www.mapquestapi.com/geocoding/v1/address?key=${process.env.GEOCODE_API_KEY}&location=${req.body.location}`)
@@ -165,11 +165,13 @@ router.put("/:id", async (req, res) => {
 router.delete("/:id", async (req, res) => {
   try {
     const userID = await passage.authenticateRequest(req);
+    console.log(userID)
     if (userID) {
         // user is authenticated
-        const { email, phone, user_metadata } = await passage.user.get(userID);
-        const identifier = email ? email : phone;
-        const getUser = await User.findOne({passage_id: identifier});
+        // const { email, phone, user_metadata } = await passage.user.get(userID);
+        // const identifier = email ? email : phone;
+        const getUser = await User.findOne({passage_id: userID});
+        console.log(getUser)
         const deletedListing = await Listing.findByIdAndDelete(req.params.id);
         res.status(200).json(deletedListing);
     }
