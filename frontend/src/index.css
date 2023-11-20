@@ -9,3 +9,33 @@ iframe#webpack-dev-server-client-overlay {
   display: none !important;
   visibility: hidden !important;
 }
+
+div#modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#modalOverlayBackground {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 50%;
+  z-index: 10;
+  background-color: black;
+}
+
+div#deleteBox {
+  background-color: white;
+  z-index: 11;
+  padding: 50px;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
