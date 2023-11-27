@@ -84,7 +84,7 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-//retrieve information from one all Listings by their user ID
+//retrieve information from all Listings by their user ID
 router.get("/user/:id", async (req, res) => {
   try {
     const getUserListings = await Listing.find({ userID: req.params.id });
