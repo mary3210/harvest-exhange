@@ -87,7 +87,7 @@ function ViewUsersListings() {
                                 <p>Price: {post?.price}</p>
                                 <p>{post?.text}</p>
                             </div>
-                            <Link to="../Listing/EditListing">Edit</Link>
+                            <Link to={`../Listing/EditListing/${post._id}`}>Edit</Link>
                             <button
                                 className="deleteBtn"
                                 onClick={()=>handleDeleteClick(post._id)}

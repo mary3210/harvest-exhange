@@ -33,6 +33,7 @@ function EditListing(props) {
     const handleSubmit = async (e) => {
       e.preventDefault();
         const currentState = { ...editForm };
+        console.log(currentState)
         try {
             const requestOptions = {
                 method: "PUT",
@@ -52,15 +53,18 @@ function EditListing(props) {
         }
     };
     useEffect(() => {
-        console.log("abs ", data);
+       
         getPost(id)
+        console.log("abs ", data);
     }, [id]);
 
 
     const setImage = (newImage) => {
+      console.log(newImage)
         setEditForm((prev) => ({
             ...prev,
             image: newImage,
+            
         }));
     };
     const handleChange = (e) => {
@@ -112,7 +116,7 @@ function EditListing(props) {
                 </div>
                 <div className="imageinput">
                     Image:
-                    <UploadImage uploadedImage={setImage} />
+                    <UploadImage uploadedImage={setImage} initialImage={editForm?.image}/>
                 </div>
                 <div className="txt">
                     <label>
