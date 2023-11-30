@@ -116,7 +116,7 @@ function EditListing(props) {
                 </div>
                 <div className="imageinput">
                     Image:
-                    <UploadImage uploadedImage={setImage} initialImage={editForm?.image}/>
+                    <UploadImage setPostform={setEditForm} />
                 </div>
                 <div className="txt">
                     <label>

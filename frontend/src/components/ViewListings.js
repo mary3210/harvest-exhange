@@ -132,7 +132,7 @@ const PostList = () => {
                   <p>Location: {post.location}</p>
                 </div>
                 <div className="listingText">
-                  <p>Price: {post.price}</p>
+                  <p>Price: ${post.price} per {post.unit} </p>
                 </div>
               </Link>
             </div>

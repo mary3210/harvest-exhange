@@ -12,17 +12,12 @@ function CreateListing() {
         image: "",
         location: "",
         category: "produce",
-        price: "",
+        price: "0",
         unit: "lb",
     });
+
     const URL = "http://localhost:8000";
 
-    const setImage = (newImage) => {
-        setPostform((prev) => ({
-            ...prev,
-            image: newImage,
-        }));
-    };
     const handleChange = (e) => {
         const userInput = { ...postForm };
         userInput[e.target.name] = e.target.value;
@@ -53,15 +48,6 @@ function CreateListing() {
             const response = await fetch(URL + "/listing", requestOptions);
             const newPost = await response.json();
             setPostform([...post, newPost]);
-            setPostform({
-                title: "",
-                text: "",
-                image: "",
-                location: "",
-                category: "produce",
-                price: "",
-                unit: "lb",
-            });
             navigate("/");
         } catch (err) {
             console.error(err);
@@ -104,19 +90,9 @@ function CreateListing() {
                             </label>
                         </div>
                         <div className="imageinput">
-                            {/* <UploadImage uploadedImage={setImage} /> */}
                             <label>
                                 Image:
-                                <UploadImage uploadedImage={setImage} />
-                                {/* <input
-                    type="url"
-                    placeholder="url"
-                    id="image"
-                    name="image"
-                    value={postForm.image}
-                    onChange={handleChange}
-                  />
-                </label> */}
+                                <UploadImage setPostform={setPostform} />
                             </label>
                         </div>
                         <div className="txt">

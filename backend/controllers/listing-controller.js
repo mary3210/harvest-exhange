@@ -39,7 +39,7 @@ router.get("/", async (req, res) => {
         })
     }
 
-    if (Number(minprice) >= 0 || Number(maxprice) >=0) {
+    if ((minprice && Number(minprice) >= 0) || (maxprice && Number(maxprice) >=0)) {
         filter.price = {
           ...(minprice && {$gte: Number(minprice)}),
           ...(maxprice && {$lte: Number(maxprice)})
@@ -62,8 +62,9 @@ router.get("/", async (req, res) => {
         ...(category && {category: category}),
         ...(subtypes && {subtypes: subtypes})
     };
-
+console.log("filter");
     console.log(filter);
+    console.log("end filter");
     //search listing by whatever is in filter
     const allListing = await Listing.find(filter);
     console.log(allListing);
@@ -133,8 +134,8 @@ router.put("/:id", async (req, res) => {
   try {
     const userID = await passage.authenticateRequest(req);
     if (userID) {
-        const { email, phone, user_metadata } = await passage.user.get(userID);
-        const identifier = email ? email : phone;
+        // const { email, phone, user_metadata } = await passage.user.get(userID);
+        // const identifier = email ? email : phone;
         const getUser = await User.findOne({passage_id: userID});
         if (getUser) {
         if (req.body.location){

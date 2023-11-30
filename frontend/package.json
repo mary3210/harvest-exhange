@@ -3,9 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@cloudinary/react": "^1.11.2",
+    "@cloudinary/url-gen": "^1.13.0",
     "@passageidentity/passage-react": "^0.5.0",
     "@passageidentity/webauthnutils": "^1.1.2",
     "axios": "^0.26.1",
+    "cloudinary": "^1.41.0",
     "dotenv": "^16.3.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

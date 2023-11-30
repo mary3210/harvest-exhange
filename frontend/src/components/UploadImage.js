@@ -1,78 +1,61 @@
-import React, { useState } from "react";
-import { useEffect } from "react";
+import { useState, createContext, useEffect } from "react";
+import CloudinaryUploadWidget from "../hooks/CloudinaryUploadWidget";
+import { Cloudinary } from "@cloudinary/url-gen";
+import { AdvancedImage, responsive, placeholder } from "@cloudinary/react";
 
-function UploadImage(props) {
-  //holds image to be uploaded
-  const [image, setImage] = useState("");
-  //holds the image url after its been uploaded
-  const [url, setUrl] = useState("");
-  
-  const [loading, setLoading] = useState(false);
+export default function UploadImage({ setPostform }) {
+    const [imageInfo, setImageInfo] = useState("");
+    // Replace with your own cloud name
+    const [cloudName] = useState("dr9kvkbgq");
+    // Replace with your own upload preset
+    const [uploadPreset] = useState("harvest_exchange");
 
-  const { uploadedImage, initialImage } = props;
+    // Upload Widget Configuration
+    // Remove the comments from the code below to add
+    // additional functionality.
+    // Note that these are only a few examples, to see
+    // the full list of possible parameters that you
+    // can add see:
+    //   https://cloudinary.com/documentation/upload_widget_reference
 
+    const [uwConfig] = useState({
+        cloudName,
+        uploadPreset,
+        // cropping: true, //add a cropping step
+        // showAdvancedOptions: true,  //add advanced options (public_id and tag)
+        // sources: [ "local", "url"], // restrict the upload sources to URL and local files
+        // multiple: false,  //restrict upload to a single file
+        // folder: "user_images", //upload files to the specified folder
+        // tags: ["users", "profile"], //add the given tags to the uploaded files
+        // context: {alt: "user_uploaded"}, //add the given context data to the uploaded files
+        // clientAllowedFormats: ["images"], //restrict uploading to image files only
+        // maxImageFileSize: 2000000,  //restrict file size to less than 2MB
+        // maxImageWidth: 2000, //Scales the image down to a width of 2000 pixels before uploading
+        // theme: "purple", //change to a purple theme
+    });
 
-  function ImageUpload(e) {
-
-    const files = e.target.files
-   
-    const data = new FormData();
-    data.append("file", files[0]);
-    data.append("upload_preset", "harvest_exchange");
-    data.append("cloud_name", "dr9kvkbgq");
-    setLoading(true);
-    fetch("https://api.cloudinary.com/v1_1/dr9kvkbgq/image/upload", {
-      method: "POST",
-      body: data,
-    })
-      .then((resp) => resp.json())
-      .then((data) => {
-        setUrl(data.url);
-        setImage(data.url)
-        console.log("a")
-        console.log(data.url)
-        if(uploadedImage){
-            uploadedImage(data.url);
-            setLoading(false);
+    useEffect(() => {
+        if (imageInfo) {
+            setPostform((prev) => ({
+                ...prev,
+                image: imageInfo?.secure_url
+            }));
         }
-        
-      })
-      .catch((err) => {console.log(err)
-        setLoading(false);});
-  }
-  useEffect(() => {
-    // Set the initial image value when the component mounts
-    if (initialImage) {
-      setUrl(initialImage);
-    }
-  }, [initialImage]);
+    }, [imageInfo]);
 
-  return (
-    <div>
-      <div>
-        <input
-          name="image"
-          placeholder="upload an image"
-          type="file"
-          onChange={ImageUpload}
-        ></input>
-        
-      </div>
-      <div>
-        <h1>Uploaded image will be displayed here</h1>
-        {loading ?( <p>Loading...</p>):(
-          url && (
-            <><img src={url} alt="uploaded"/>
-            
-            </>
-          )
-        )}
-        
-  
-        
-      </div>
-    </div>
-  );
+    return (
+        <div className="UploadImage">
+            <CloudinaryUploadWidget
+                uwConfig={uwConfig}
+                setPublicId={setImageInfo}
+            />
+            {imageInfo && (
+                <img
+                    src={imageInfo?.secure_url}
+                    style={{ width: "400px", display: "block" }}
+                    alt="produce"
+                />
+            )}
+        </div>
+    );
 }
-
-export default UploadImage;
