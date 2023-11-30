@@ -6,6 +6,7 @@ import UploadImage from "../components/UploadImage";
 function EditListing(props) {
   
     const navigate = useNavigate();
+    const [locationError, setLocationError] = useState('');
     const { id } = useParams();
     const { data } = props;
     const URL = `http://localhost:8000/listing/`;
@@ -34,6 +35,12 @@ function EditListing(props) {
       e.preventDefault();
         const currentState = { ...editForm };
         console.log(currentState)
+        const location = editForm.location.trim()
+        if (location === '') {
+          setLocationError('Please enter the location');
+          return;
+        }
+        else {
         try {
             const requestOptions = {
                 method: "PUT",
@@ -51,26 +58,19 @@ function EditListing(props) {
         } catch (err) {
             console.error(err);
         }
-    };
+      }
+  }
     useEffect(() => {
        
         getPost(id)
         console.log("abs ", data);
     }, [id]);
 
-
-    const setImage = (newImage) => {
-      console.log(newImage)
-        setEditForm((prev) => ({
-            ...prev,
-            image: newImage,
-            
-        }));
-    };
     const handleChange = (e) => {
         const userInput = { ...editForm };
         userInput[e.target.name] = e.target.value;
         setEditForm(userInput);
+        setLocationError('');
     };
     const handleChange2 = (event) => {
         const userInput = { ...editForm };
@@ -112,6 +112,7 @@ function EditListing(props) {
                             value={editForm.location}
                             onChange={handleChange}
                         />
+                        <div style={{ color: 'red' }}>{locationError}</div>
                     </label>
                 </div>
                 <div className="imageinput">
