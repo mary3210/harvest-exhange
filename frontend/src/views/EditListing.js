@@ -7,6 +7,7 @@ function EditListing(props) {
   
     const navigate = useNavigate();
     const [locationError, setLocationError] = useState('');
+    const [titleError, setTitleError] = useState('');
     const { id } = useParams();
     const { data } = props;
     const URL = `http://localhost:8000/listing/`;
@@ -35,9 +36,14 @@ function EditListing(props) {
       e.preventDefault();
         const currentState = { ...editForm };
         console.log(currentState)
+        const title = editForm.title.trim()
+        if (title === '') {
+          setTitleError('Please enter a title');
+          return;
+        }
         const location = editForm.location.trim()
         if (location === '') {
-          setLocationError('Please enter the location');
+          setLocationError('Please enter a zipcode');
           return;
         }
         else {
@@ -71,6 +77,7 @@ function EditListing(props) {
         userInput[e.target.name] = e.target.value;
         setEditForm(userInput);
         setLocationError('');
+        setTitleError('');
     };
     const handleChange2 = (event) => {
         const userInput = { ...editForm };
@@ -98,6 +105,7 @@ function EditListing(props) {
                             value={editForm.title}
                             onChange={handleChange}
                         />
+                        <div style={{ color: 'red' }}>{titleError}</div>
                     </label>
                 </div>
                 <br />

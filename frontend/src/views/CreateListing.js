@@ -6,6 +6,9 @@ import UploadImage from "../components/UploadImage";
 function CreateListing() {
     const [post, setPost] = useState([]);
     const navigate = useNavigate();
+    const [locationError, setLocationError] = useState('');
+    const [titleError, setTitleError] = useState('');
+    const [imageError, setImageError] = useState('');
     const [postForm, setPostform] = useState({
         title: "",
         text: "",
@@ -22,6 +25,9 @@ function CreateListing() {
         const userInput = { ...postForm };
         userInput[e.target.name] = e.target.value;
         setPostform(userInput);
+        setLocationError('');
+        setTitleError('');
+        setImageError('');
     };
     const handleChange2 = (event) => {
         const userInput = { ...postForm };
@@ -35,6 +41,24 @@ function CreateListing() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const currentState = { ...postForm };
+        const title = postForm.title.trim()
+        if (title === '') {
+          setTitleError('Please enter a title');
+          return;
+        }
+        const location = postForm.location.trim()
+        if (location === '') {
+          setLocationError('Please enter a location');
+          return;
+        }
+
+        if (!postForm.image) {
+            setImageError("Please upload an image");
+            return;
+          }
+
+
+
         try {
             const requestOptions = {
                 method: "POST",
@@ -73,6 +97,7 @@ function CreateListing() {
                                     value={postForm.title}
                                     onChange={handleChange}
                                 />
+                                 <div style={{ color: 'red' }}>{titleError}</div>
                             </label>
                         </div>
                         <br />
@@ -87,12 +112,14 @@ function CreateListing() {
                                     value={postForm.location}
                                     onChange={handleChange}
                                 />
+                                <div style={{ color: 'red' }}>{locationError}</div>
                             </label>
                         </div>
                         <div className="imageinput">
                             <label>
                                 Image:
                                 <UploadImage setPostform={setPostform} />
+                                <div style={{ color: 'red' }}>{imageError}</div>
                             </label>
                         </div>
                         <div className="txt">
