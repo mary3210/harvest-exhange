@@ -1,10 +1,10 @@
-import React from 'react'
-import ViewListings from '../components/ViewListings'
+import { React } from 'react';
+import ViewListings from '../components/ViewListings';
 
 
 function Home() {
   return (
-    <div>Home
+    <div>
         <ViewListings/>
     </div>
   )

@@ -1,7 +1,4 @@
-import {
-  PassageAuth,
-  PassageUnAuthGuard,
-} from "@passageidentity/passage-react";
+import { PassageAuth, PassageUnAuthGuard } from "@passageidentity/passage-react";
 import { Navigate } from "react-router-dom";
 import styles from "../styles/App.module.css";
 

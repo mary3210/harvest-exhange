@@ -11,28 +11,25 @@ import CreateListing from "./views/CreateListing";
 import Navbar from "./components/Navbar";
 import ViewUsersListings from "./components/ViewUsersListings";
 import { UserProvider } from "./hooks/UserContext";
+import { GlobalProvider } from "./hooks/GlobalContext";
 
 function App() {
     return (
-        <UserProvider>
+        <GlobalProvider>
             <PassageProvider appId={process.env.REACT_APP_PASSAGE_APP_ID}>
-                <div>
-                    <Navbar/>
-                </div>
-                <div>
-                    <Routes>
-                        <Route path="/" element={<Home />}></Route>
-                        <Route path="/listing/:id" element={<Listing />}></Route>
-                        <Route path="/listing/CreateListing" element={<CreateListing/>}></Route>
-                        <Route path="/listing/EditListing/:id" element={<EditListing/>}></Route>
-                        <Route path="/listing/viewmylisting" element={<ViewUsersListings />}></Route>
-                        <Route path="/login" element={<Login />}></Route>
-                        <Route path="/dashboard" element={<Dashboard />}></Route>
-                        <Route path="/profile" element={<Profile />}></Route>
-                    </Routes>
-                </div>
+                <Navbar/>
+                <Routes>
+                    <Route path="/" element={<Home/>}></Route>
+                    <Route path="/listing/:id" element={<Listing/>}></Route>
+                    <Route path="/listing/CreateListing" element={<UserProvider><CreateListing/></UserProvider>}></Route>
+                    <Route path="/listing/EditListing/:id" element={<UserProvider><EditListing/></UserProvider>}></Route>
+                    <Route path="/listing/viewmylisting" element={<UserProvider><ViewUsersListings/></UserProvider>}></Route>
+                    <Route path="/login" element={<Login />}></Route>
+                    <Route path="/logout" element={<Dashboard />}></Route>
+                    <Route path="/profile" element={<Profile />}></Route>
+                </Routes>
             </PassageProvider>
-        </UserProvider>
+        </GlobalProvider>
     );
 }
  
