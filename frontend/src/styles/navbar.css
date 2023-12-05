@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Raleway&display=swap');
+
+.navbar .wrapper{
+    width: 100%;
+    margin: 0 auto;
+    
+}
+
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+    
+    background-color:white;
+}
+
+.box1 {
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 25px;
+}
+.box2 {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 25px;
+    
+}
+.box1 p {
+    font-family: 'Raleway', cursive;
+    color:black;
+    text-align: start;
+    
+}  
+
+.box2 p {
+    font-family: 'Raleway', cursive;
+    color:black;
+    text-align: end;
+    
+}  
+
+.navbar a{
+    text-decoration: none;
+}
+.item6 {
+    
+    flex-grow: 2;
+    justify-content: flex-end;
+}
+
+.item {
+ height: 50px;
+ min-width: 200px;
+}
+
+
+

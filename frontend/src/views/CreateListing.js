@@ -27,7 +27,6 @@ function CreateListing() {
         setPostform(userInput);
         setLocationError('');
         setTitleError('');
-        setImageError('');
     };
     const handleChange2 = (event) => {
         const userInput = { ...postForm };
@@ -118,7 +117,8 @@ function CreateListing() {
                         <div className="imageinput">
                             <label>
                                 Image:
-                                <UploadImage setPostform={setPostform} />
+                                <UploadImage setPostform={setPostform} imageError={imageError}
+        setImageError={setImageError}/>
                                 <div style={{ color: 'red' }}>{imageError}</div>
                             </label>
                         </div>

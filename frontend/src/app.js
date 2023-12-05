@@ -12,11 +12,13 @@ import Navbar from "./components/Navbar";
 import ViewUsersListings from "./components/ViewUsersListings";
 import { UserProvider } from "./hooks/UserContext";
 import { GlobalProvider } from "./hooks/GlobalContext";
-
+import About from "./views/About";
+import Header from "./components/Header";
 function App() {
     return (
         <GlobalProvider>
             <PassageProvider appId={process.env.REACT_APP_PASSAGE_APP_ID}>
+                <Header/>
                 <Navbar/>
                 <Routes>
                     <Route path="/" element={<Home/>}></Route>
@@ -27,6 +29,7 @@ function App() {
                     <Route path="/login" element={<Login />}></Route>
                     <Route path="/logout" element={<Dashboard />}></Route>
                     <Route path="/profile" element={<Profile />}></Route>
+                    <Route path="/about" element={<About />}></Route>
                 </Routes>
             </PassageProvider>
         </GlobalProvider>

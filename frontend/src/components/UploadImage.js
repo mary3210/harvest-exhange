@@ -2,22 +2,16 @@ import { useState, createContext, useEffect } from "react";
 import CloudinaryUploadWidget from "../hooks/CloudinaryUploadWidget";
 import { Cloudinary } from "@cloudinary/url-gen";
 import { AdvancedImage, responsive, placeholder } from "@cloudinary/react";
+import { edit } from "@cloudinary/url-gen/actions/animated";
 
-export default function UploadImage({ setPostform }) {
+export default function UploadImage({ setPostform, setImageError, imageError, editImage}) {
     const [imageInfo, setImageInfo] = useState("");
     // Replace with your own cloud name
     const [cloudName] = useState("dr9kvkbgq");
     // Replace with your own upload preset
     const [uploadPreset] = useState("harvest_exchange");
 
-    // Upload Widget Configuration
-    // Remove the comments from the code below to add
-    // additional functionality.
-    // Note that these are only a few examples, to see
-    // the full list of possible parameters that you
-    // can add see:
-    //   https://cloudinary.com/documentation/upload_widget_reference
-
+  
     const [uwConfig] = useState({
         cloudName,
         uploadPreset,
@@ -40,8 +34,9 @@ export default function UploadImage({ setPostform }) {
                 ...prev,
                 image: imageInfo?.secure_url
             }));
+            setImageError("")
         }
-    }, [imageInfo]);
+    }, [imageInfo, editImage]);
 
     return (
         <div className="UploadImage">
@@ -49,13 +44,22 @@ export default function UploadImage({ setPostform }) {
                 uwConfig={uwConfig}
                 setPublicId={setImageInfo}
             />
+
+           
             {imageInfo && (
                 <img
                     src={imageInfo?.secure_url}
                     style={{ width: "400px", display: "block" }}
                     alt="produce"
                 />
-            )}
+            ) }
+              {editImage && !imageInfo &&(
+              <img
+              src={editImage}
+              style={{ width: "400px", display: "block" }}
+              alt="produce"
+          />
+          )}  
         </div>
     );
 }

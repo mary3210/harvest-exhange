@@ -8,27 +8,33 @@ export const UserProvider = ({ children }) => {
     // usePassageUserInfo();
     const [user, setUser] = useState();
     const navigate = useNavigate();
-    
+
     useEffect(() => {
         const getUserProfile = async () => {
             try {
-                const response = await fetch("http://localhost:8000/user/getUserProfile", {
-                    method: "GET",
-                    headers: {
-                        "content-Type": "application/json",
-                        authorization: "Bearer " + localStorage.getItem("psg_auth_token")
+                const response = await fetch(
+                    "http://localhost:8000/user/getUserProfile",
+                    {
+                        method: "GET",
+                        headers: {
+                            "content-Type": "application/json",
+                            authorization:
+                                "Bearer " +
+                                localStorage.getItem("psg_auth_token"),
+                        },
                     }
-                });
+                );
                 const resp = await response.json();
-                setUser(resp);
-            } catch (err) { 
-
+                if (resp.error) {
+                    navigate("/login");
+                } else {
+                    setUser(resp);
+                }
+            } catch (err) {
             } finally {
-
             }
-            
-        }
-        
+        };
+
         if (localStorage.getItem("psg_auth_token")) {
             getUserProfile();
         } else {
@@ -37,8 +43,6 @@ export const UserProvider = ({ children }) => {
     }, []);
 
     return (
-        <UserContext.Provider value={{user}}>
-            {children}
-        </UserContext.Provider>
+        <UserContext.Provider value={{ user }}>{children}</UserContext.Provider>
     );
 };

@@ -6,6 +6,7 @@ import UploadImage from "../components/UploadImage";
 function EditListing(props) {
   
     const navigate = useNavigate();
+    const [imageError, setImageError] = useState('');
     const [locationError, setLocationError] = useState('');
     const [titleError, setTitleError] = useState('');
     const { id } = useParams();
@@ -125,7 +126,8 @@ function EditListing(props) {
                 </div>
                 <div className="imageinput">
                     Image:
-                    <UploadImage setPostform={setEditForm} />
+                    <UploadImage setPostform={setEditForm} imageError={imageError}
+        setImageError={setImageError} editImage={editForm.image }/>
                 </div>
                 <div className="txt">
                     <label>

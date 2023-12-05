@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { usePassageLogout } from "../hooks";
 import { useNavigate } from "react-router-dom";
 
@@ -6,11 +7,15 @@ export const LogoutButton = () => {
 
   const navigate = useNavigate();
 
-  const signout = () => {
-    logout();
+  useEffect(() => {
+    const signout = async() => {
+    await logout();
     navigate("/login");
   };
-  return <button onClick={signout}>Sign Out</button>;
+  signout()
+},[logout, navigate]);
+  return null;
+  // <button onClick={signout}>Sign Out</button>;
 };
 
 export default LogoutButton;
