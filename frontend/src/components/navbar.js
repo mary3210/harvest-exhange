@@ -11,54 +11,30 @@ console.log(loggedin)
       <nav className="navbar wrapper">
         <div className="flex-container">
           <div className="box1">
-        <div className="item item1">
-        <Link to="/">
-          <p>Home</p>
-        </Link>
-        </div>
-        <div className="item item2">
-        <Link to="/listing/CreateListing/">
-          <p>Create Listing</p>
-        </Link>
-        </div>
-        <div className="item item3">
-        <Link to="/listing/viewmylisting">
-          <p>View My Listings</p>
-        </Link>
-        </div>
-        <div className="item item4">
-        <Link to="/profile">
-          <p>Profile</p>
-        </Link>
-        </div>
-        <div className="item item5">
-        <Link to="/about">
-          <p>About</p>
-        </Link>
-        </div>
-        </div>
-        <div className="box2">
-        <div className="item item6">
-        <Link to="/logout">
-          <p>Logout</p>
-        </Link>
-        </div>
-        </div>
+            <Link to="/">Home</Link>
+            <Link to="/listing/CreateListing/">Create Listing</Link>
+            <Link to="/listing/viewmylisting">View My Listings</Link>
+            <Link to="/profile">Profile</Link>
+            <Link to="/about">About</Link>
+          </div>
+          <div className="box2">
+            <Link to="/logout">Logout</Link>
+          </div>
         </div>
       </nav>
     );
   } else {
     return (
-      <nav className="navbar">
-        <Link to="/">
-          <p>Home</p>
-        </Link>
-        <Link to="/about">
-          <p>About</p>
-        </Link>
-        <Link to="/login">
-          <p>Login</p>
-        </Link>
+      <nav className="navbar wrapper">
+        <div className="flex-container">
+          <div className="box1">
+            <Link to="/">Home</Link>
+            <Link to="/about">About</Link>
+          </div>
+          <div className="box2">
+            <Link to="/login">Login</Link>
+          </div>
+        </div>
       </nav>
     );
   }

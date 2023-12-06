@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-
+import myStyles from "../styles/Searchbar.css"
 const PostList = () => {
   const [posts, setPosts] = useState([]);
   const BASE_URL = "http://localhost:8000";
@@ -112,8 +112,8 @@ const PostList = () => {
           onChange={handleChange2}
         ></input>
         {/* <input type="range" name="price" min="0" max="100" defaultValue="0" onChange={handleChange2} className="slider" id="myRange"></input> */}
-        <div className="btn postbtn1">
-          <input className="postBtn" type="submit" value="Find" />
+        <div className="btn findbtn1">
+          <input className="findBtn" type="submit" value="Find" />
         </div>
       </form>
 

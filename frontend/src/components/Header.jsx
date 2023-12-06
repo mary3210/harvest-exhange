@@ -1,11 +1,11 @@
-import React from 'react'
-
+import React from 'react';
+import myStyles from "../styles/Header.css";
 function Header() {
   return (
-    <div>
-        <h1>
+    <div className='Header'>
+        
             Harvest Exchange
-        </h1>
+        
     </div>
   )
 }
