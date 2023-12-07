@@ -58,7 +58,7 @@ const PostList = () => {
 
   return (
     <>
-      <h2>Garden Listings</h2>
+     
       <div className="Searchbar">
       <form onSubmit={DoFilterTask}>
         <div className="locationdiv">

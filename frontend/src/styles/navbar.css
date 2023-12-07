@@ -51,3 +51,6 @@
     transform: scaleX(1);
 }
 
+.navbar a.active:before {
+    transform: scaleX(1);
+}
