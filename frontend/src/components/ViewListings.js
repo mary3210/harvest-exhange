@@ -59,15 +59,21 @@ const PostList = () => {
   return (
     <>
       <h2>Garden Listings</h2>
+      <div className="Searchbar">
       <form onSubmit={DoFilterTask}>
-        <label htmlFor="location">Location:</label>
+        <div className="locationdiv">
+       
         <input
+         className="locationfield"
           type="text"
           id="location"
           name="location"
           value={filter.location}
           onChange={handleChange}
         ></input>
+         <label htmlFor="location" className="locationlabel">Location</label>
+        </div>
+        <div className="distance">
         <label htmlFor="distance">Distance:</label>
         <select
           name="distance"
@@ -83,6 +89,8 @@ const PostList = () => {
           <option value="20">20 miles</option>
           <option value="25">25 miles</option>
         </select>
+        </div>
+        <div className="category">
         <label htmlFor="category">category:</label>
         <select
           name="category"
@@ -95,6 +103,8 @@ const PostList = () => {
           <option value="seed">seed</option>
           <option value="live plant">live plant</option>
         </select>
+        </div>
+        <div className="minprice">
         <label htmlFor="minprice">min:</label>
         <input
           type="Number"
@@ -103,6 +113,8 @@ const PostList = () => {
           min="0"
           onChange={handleChange2}
         ></input>
+        </div>
+        <div className="maxprice">
         <label htmlFor="maxprice">max:</label>
         <input
           type="Number"
@@ -111,11 +123,12 @@ const PostList = () => {
           min="0"
           onChange={handleChange2}
         ></input>
-        {/* <input type="range" name="price" min="0" max="100" defaultValue="0" onChange={handleChange2} className="slider" id="myRange"></input> */}
+        </div>
         <div className="btn findbtn1">
           <input className="findBtn" type="submit" value="Find" />
         </div>
       </form>
+      </div>
 
       <ul>
         {posts &&

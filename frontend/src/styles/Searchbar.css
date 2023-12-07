@@ -1,3 +1,106 @@
+
+/* find button */
 .findbtn1 {
+ display:inline-block;
 
 }
+
+input[type=submit] {
+    display: inline-block;
+    font-size: 17px;
+    height: 40px;
+    width: 75px;
+    border: none;
+    border-radius: 20px;
+    background: linear-gradient(32deg,#aedd9970,#99ddc870,#99aedd70,#c899dd70);
+    transition: all 0.5s ease-in-out;
+    font-family: 'Ropa Sans', sans-serif;
+    font-weight: bold;
+    letter-spacing: 0.05rem;
+    padding: 0;
+
+    
+}
+
+input[type=submit]:hover {
+    background: linear-gradient(32deg,#aedd99,#99ddc8,#99aedd,#c899dd);
+    color: #ffffff;
+}
+
+
+.Searchbar {
+    display:flex;
+    width: 100%;
+    justify-content: center;
+    line-height: 50px;
+    height: 100px;
+}
+
+form {
+    display:flex;
+    gap: 10px;
+    border:solid, linear-gradient(32deg,#aedd9970,#99ddc870,#99aedd70,#c899dd70);
+    border-radius: 15px;
+    margin-top: 20px;
+}
+
+.Searchbar div {
+    display: inline-block;
+    
+
+}
+
+
+.locationfield {
+    font-family: inherit;
+    width: 180px;
+    border: 0;
+    border-bottom: 2px solid gray;
+    outline: 0;
+    font-size: 1.3rem;
+    color: gray;
+    background: transparent;
+    transition: border-color 0.2s; 
+}
+
+
+.locationdiv {
+    position: relative;
+    width: 250px;
+    
+}
+
+.locationlabel {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color:gray
+  }
+
+  .locationfield:focus {
+    ~ .locationlabel {
+        position: absolute;
+        top: -20px;
+        display: block;
+        transition: 0.2s;
+        font-size: 12px;
+        color: #38ef7d;
+        font-weight:700;    
+      }
+      padding-bottom: 4px;  
+      font-weight: 700;
+      border-width: 3px;
+      border-image: linear-gradient(to right, #11998e,#38ef7d);
+      border-image-slice: 1;
+    }
+  
+ 
+     input[type=Number]{
+        width:50px;
+     }
+
+     h2 {
+        margin-bottom: 5px;
+     }
