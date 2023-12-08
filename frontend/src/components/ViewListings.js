@@ -74,7 +74,6 @@ const PostList = () => {
          <label htmlFor="location" className="locationlabel">Location</label>
         </div>
         <div className="distance">
-        <label htmlFor="distance">Distance:</label>
         <select
           name="distance"
           id="distance"
@@ -91,14 +90,13 @@ const PostList = () => {
         </select>
         </div>
         <div className="category">
-        <label htmlFor="category">category:</label>
         <select
           name="category"
           id="category"
           value={filter.category}
           onChange={handleChange}
         >
-          <option value="">any</option>
+          <option value="">all categories</option>
           <option value="produce">produce</option>
           <option value="seed">seed</option>
           <option value="live plant">live plant</option>

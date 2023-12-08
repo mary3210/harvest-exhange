@@ -104,3 +104,73 @@ form {
      h2 {
         margin-bottom: 5px;
      }
+
+     /* distance selector */
+
+     .distance {
+        margin-bottom: 20px;
+      }
+      
+      
+      .distance select {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #fff;
+        outline: none;
+        transition: border-color 0.3s;
+        cursor: pointer;
+      }
+      
+      .distance select:hover,
+      .distance select:focus {
+        border-color: #38ef7d;
+      }
+      
+      /* Styling for the distance options */
+      .distance select option {
+        font-size: 16px;
+        background-color: #fff;
+        color: #333;
+      }
+      
+      .distance select option:hover {
+        background-color: #f0f0f0;
+      }
+
+
+      /* category selector */
+
+      .category {
+        margin-bottom: 20px;
+      }
+      
+      
+      .category select {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #fff;
+        transition: border-color 0.3s;
+        cursor: pointer;
+      }
+      
+      .category select:hover,
+      .category select:focus {
+        border-color: #38ef7d;
+      }
+      
+      /* Styling for the distance options */
+      .distance select option {
+        font-size: 16px;
+        background-color: #fff;
+        color: #333;
+      }
+      
+      .distance select option:hover {
+        background-color: #f0f0f0;
+      }
