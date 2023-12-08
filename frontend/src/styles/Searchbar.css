@@ -79,24 +79,25 @@ form {
     color:gray
   }
 
-  .locationfield:focus {
-    ~ .locationlabel {
-        position: absolute;
-        top: -20px;
-        display: block;
-        transition: 0.2s;
-        font-size: 12px;
-        color: #11998e;
-        font-weight:700;    
-      }
-      padding-bottom: 4px;  
-      font-weight: 700;
-      border-width: 3px;
-      border-image: linear-gradient(to right, #11998e,#38ef7d);
-      border-image-slice: 1;
-    }
+
   
- 
+  .locationfield:focus ~ .locationlabel,
+  .locationfield:not(:focus):not([value=""]) ~ .locationlabel {
+    top: -20px;
+    font-size: 12px;
+    color: #11998e;
+    font-weight: 700;
+  }
+  
+  /* Additional styles for visual enhancements */
+  .locationfield:focus {
+    padding-bottom: 4px;
+    font-weight: 700;
+    border-width: 3px;
+    border-image: linear-gradient(to right, #11998e, #38ef7d);
+    border-image-slice: 1;
+  }
+
      input[type=Number]{
         width:50px;
      }

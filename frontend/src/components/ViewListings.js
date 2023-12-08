@@ -13,12 +13,18 @@ const PostList = () => {
   });
   
   function moveLabelUp(input) {
-    input.previousElementSibling.classList.add("label-up");
+    const label = document.querySelector(`label[for=${input.id}]`);
+    if (label) {
+      label.classList.add("label-up");
+    }
   }
-
+  
   function moveLabelBack(input) {
-    if (input.value === "") {
-      input.previousElementSibling.classList.remove("label-up");
+    if (!input.value && !input.matches(":focus")) {
+      const label = document.querySelector(`label[for=${input.id}]`);
+      if (label) {
+        label.classList.remove("label-up");
+      }
     }
   }
 
@@ -80,6 +86,8 @@ const PostList = () => {
           name="location"
           value={filter.location}
           onChange={handleChange}
+          onFocus={() => moveLabelUp(document.getElementById("location"))}
+          onBlur={() => moveLabelBack(document.getElementById("location"))}
         ></input>
          <label htmlFor="location" className="locationlabel">Location</label>
         </div>
@@ -124,6 +132,7 @@ const PostList = () => {
           onBlur={() => moveLabelBack(document.getElementById("minprice"))}
         ></input>
         </div>
+        <div><span>-</span></div>
         <div className="maxprice">
         <label htmlFor="maxprice">Max</label>
         <input
