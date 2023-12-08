@@ -174,3 +174,92 @@ form {
       .distance select option:hover {
         background-color: #f0f0f0;
       }
+
+
+/* min and max price */
+
+.minprice {
+    margin-bottom: 20px;
+    position: relative;
+  }
+  
+  .minprice label {
+    position: absolute;
+    font-family: 'Raleway';
+    top: 50%;
+    color:gray;
+    transform: translateY(-50%);
+    left: 2px; /* Adjust as needed */
+    pointer-events: none;
+    transition: top 0.2s ease-out, font-size 0.2s ease-out;
+  }
+  
+  .minprice input {
+    width: 50px;
+    padding-left: 10px;
+    padding-bottom: 8px;
+    font-size: 16px;
+    border: none;
+    border-bottom: 2px solid #c899dd;
+
+
+    background: transparent;
+    outline: none;
+    transition: border-image 0.2s;
+  }
+  
+  
+  /* Move label up when input is focused or has value */
+  .minprice label.label-up {
+    top: 0;
+  font-size: 14px;
+  color: #11998e;
+  }
+
+  .minprice input:focus {
+    border-image: linear-gradient(to right, #11998e, #38ef7d);
+    border-image-slice: 1;
+  }
+
+  .maxprice {
+    margin-bottom: 20px;
+    position: relative;
+  }
+  
+  .maxprice label {
+    position: absolute;
+    font-family: 'Raleway';
+    top: 50%;
+    color:gray;
+    transform: translateY(-50%);
+    left: 2px; /* Adjust as needed */
+    pointer-events: none;
+    transition: top 0.2s ease-out, font-size 0.2s ease-out;
+  }
+  
+  .maxprice input {
+    width: 50px;
+    padding-left: 10px;
+    padding-bottom: 8px;
+    font-size: 16px;
+    border: none;
+    border-bottom: 2px solid #c899dd;
+
+
+    background: transparent;
+    outline: none;
+    transition: border-image 0.2s;
+  }
+  
+  
+  /* Move label up when input is focused or has value */
+  .maxprice label.label-up {
+    top: 0;
+  font-size: 14px;
+  color: #11998e;
+  }
+
+  .maxprice input:focus {
+    border-image: linear-gradient(to right, #11998e, #38ef7d);
+    border-image-slice: 1;
+  }

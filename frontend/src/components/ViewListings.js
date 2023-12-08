@@ -11,6 +11,16 @@ const PostList = () => {
     minprice: "",
     maxprice: ""
   });
+  
+  function moveLabelUp(input) {
+    input.previousElementSibling.classList.add("label-up");
+  }
+
+  function moveLabelBack(input) {
+    if (input.value === "") {
+      input.previousElementSibling.classList.remove("label-up");
+    }
+  }
 
   const getPosts = async () => {
     try {
@@ -103,23 +113,27 @@ const PostList = () => {
         </select>
         </div>
         <div className="minprice">
-        <label htmlFor="minprice">min:</label>
+        <label htmlFor="minprice">Min</label>
         <input
           type="Number"
           id="minprice"
           name="minprice"
           min="0"
           onChange={handleChange2}
+          onFocus={() => moveLabelUp(document.getElementById("minprice"))}
+          onBlur={() => moveLabelBack(document.getElementById("minprice"))}
         ></input>
         </div>
         <div className="maxprice">
-        <label htmlFor="maxprice">max:</label>
+        <label htmlFor="maxprice">Max</label>
         <input
           type="Number"
           id="maxprice"
           name="maxprice"
           min="0"
           onChange={handleChange2}
+          onFocus={() => moveLabelUp(document.getElementById("maxprice"))}
+          onBlur={() => moveLabelBack(document.getElementById("maxprice"))}
         ></input>
         </div>
         <div className="btn findbtn1">
