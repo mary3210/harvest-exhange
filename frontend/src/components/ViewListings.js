@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import myStyles from "../styles/Searchbar.css"
+import { FaSearch } from "react-icons/fa";
 const PostList = () => {
   const [posts, setPosts] = useState([]);
   const BASE_URL = "http://localhost:8000";
@@ -11,7 +12,13 @@ const PostList = () => {
     minprice: "",
     maxprice: ""
   });
-  
+
+  const [isSearchFormExpanded, setIsSearchFormExpanded] = useState(false);
+
+  const toggleSearchForm = () => {
+    setIsSearchFormExpanded((prevExpanded) => !prevExpanded);
+  };
+
   function moveLabelUp(input) {
     const label = document.querySelector(`label[for=${input.id}]`);
     if (label) {
@@ -76,9 +83,26 @@ const PostList = () => {
     <>
      
       <div className="Searchbar">
-      <form onSubmit={DoFilterTask}>
-        <div className="locationdiv">
-       
+      <form onSubmit={DoFilterTask} className={`search-form ${isSearchFormExpanded ? "expand" : ""}`}>
+      <span class="slens" id="searchIcon" onClick={toggleSearchForm}> <FaSearch/> </span>
+        <div className="distance" id="selectors">
+        <select
+          name="distance"
+          id="distance"
+          value={filter.distance}
+          onChange={handleChange2}
+        >
+          <option value="">any distance from</option>
+          <option value="1">1 mile from</option>
+          <option value="5">5 miles from</option>
+          <option value="10">10 miles from</option>
+          <option value="15">15 miles from</option>
+          <option value="20">20 miles from</option>
+          <option value="25">25 miles from</option>
+        </select>
+        </div>
+
+        <div className="locationdiv" id="selectors">
         <input
          className="locationfield"
           type="text"
@@ -89,25 +113,9 @@ const PostList = () => {
           onFocus={() => moveLabelUp(document.getElementById("location"))}
           onBlur={() => moveLabelBack(document.getElementById("location"))}
         ></input>
-         <label htmlFor="location" className="locationlabel">Location</label>
+         <label htmlFor="location" className="locationlabel">Zipcode/Address</label>
         </div>
-        <div className="distance">
-        <select
-          name="distance"
-          id="distance"
-          value={filter.distance}
-          onChange={handleChange2}
-        >
-          <option value="">any distance</option>
-          <option value="1">1 miles</option>
-          <option value="5">5 miles</option>
-          <option value="10">10 miles</option>
-          <option value="15">15 miles</option>
-          <option value="20">20 miles</option>
-          <option value="25">25 miles</option>
-        </select>
-        </div>
-        <div className="category">
+        <div className="category" id="selectors">
         <select
           name="category"
           id="category"
@@ -118,10 +126,10 @@ const PostList = () => {
           <option value="produce">produce</option>
           <option value="seed">seed</option>
           <option value="live plant">live plant</option>
-        </select>
+        </select>  
         </div>
-        <div className="minprice">
-        <label htmlFor="minprice">Min</label>
+        <div className="minprice" id="selectors">
+        <label htmlFor="minprice">Min Price</label>
         <input
           type="Number"
           id="minprice"
@@ -132,9 +140,9 @@ const PostList = () => {
           onBlur={() => moveLabelBack(document.getElementById("minprice"))}
         ></input>
         </div>
-        <div><span>-</span></div>
-        <div className="maxprice">
-        <label htmlFor="maxprice">Max</label>
+        <div id="selectors"><span>-</span></div>
+        <div className="maxprice" id="selectors">
+        <label htmlFor="maxprice">Max Price</label>
         <input
           type="Number"
           id="maxprice"
@@ -145,9 +153,10 @@ const PostList = () => {
           onBlur={() => moveLabelBack(document.getElementById("maxprice"))}
         ></input>
         </div>
-        <div className="btn findbtn1">
-          <input className="findBtn" type="submit" value="Find" />
+        <div className="btn findbtn1" id="selectors">
+          <input className="findBtn" type="submit" value="search" />
         </div>
+       
       </form>
       </div>
 
