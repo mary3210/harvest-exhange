@@ -81,11 +81,12 @@ const PostList = () => {
 
   return (
     <>
-     
       <div className="Searchbar">
+        <div className="iconContainer">
+          <div className="slens" id="searchIcon" onClick={toggleSearchForm}><FaSearch/></div>
+        </div>
       <form onSubmit={DoFilterTask} className={`search-form ${isSearchFormExpanded ? "expand" : ""}`}>
-      <span class="slens" id="searchIcon" onClick={toggleSearchForm}> <FaSearch/> </span>
-        <div className="distance" id="selectors">
+        <div className="distance">
         <select
           name="distance"
           id="distance"
@@ -101,8 +102,7 @@ const PostList = () => {
           <option value="25">25 miles from</option>
         </select>
         </div>
-
-        <div className="locationdiv" id="selectors">
+        <div className="locationdiv">
         <input
          className="locationfield"
           type="text"
@@ -115,7 +115,7 @@ const PostList = () => {
         ></input>
          <label htmlFor="location" className="locationlabel">Zipcode/Address</label>
         </div>
-        <div className="category" id="selectors">
+        <div className="category">
         <select
           name="category"
           id="category"
@@ -128,7 +128,7 @@ const PostList = () => {
           <option value="live plant">live plant</option>
         </select>  
         </div>
-        <div className="minprice" id="selectors">
+        <div className="minprice">
         <label htmlFor="minprice">Min Price</label>
         <input
           type="Number"
@@ -140,8 +140,8 @@ const PostList = () => {
           onBlur={() => moveLabelBack(document.getElementById("minprice"))}
         ></input>
         </div>
-        <div id="selectors"><span>-</span></div>
-        <div className="maxprice" id="selectors">
+        <div><span>-</span></div>
+        <div className="maxprice">
         <label htmlFor="maxprice">Max Price</label>
         <input
           type="Number"
@@ -153,10 +153,10 @@ const PostList = () => {
           onBlur={() => moveLabelBack(document.getElementById("maxprice"))}
         ></input>
         </div>
-        <div className="btn findbtn1" id="selectors">
+        <div className="btn findbtn1">
           <input className="findBtn" type="submit" value="search" />
         </div>
-       
+      
       </form>
       </div>
 

@@ -27,35 +27,46 @@ input[type=submit]:hover {
 .Searchbar {
     display:flex;
     width: 100%;
-    justify-content: center;
+    justify-content: left;
     line-height: 50px;
     height: 100px;
-}
-
-form {
+    
+}  
+ 
+.search-form {
     display:flex;
     gap: 10px;
-    border:solid, linear-gradient(32deg,#aedd9970,#99ddc870,#99aedd70,#c899dd70);
     border-radius: 15px;
     margin-top: 20px;
+    transition: transform 2s ease-in-out;
+    transform: translateX(-100vw);
 }
 
-
-
-#selectors {
-  display: none;
+.search-form.expand{
+  transform: translateX(0);
 }
+
+ body{
+  overflow:hidden;
+ }
+
 .expand #selectors {
-  display: inline-block;
+ display:inline-block;
 }
 
-.Searchbar div {
-    display: inline-block;
-    
-
+.iconContainer{
+  display:flex;
+  background-color: red;
+  z-index: 1;
 }
 
-
+#searchIcon{
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  vertical-align: middle;
+  align-self: center;
+}
 .locationfield {
     padding-bottom: 7px;
     font-family: inherit;
