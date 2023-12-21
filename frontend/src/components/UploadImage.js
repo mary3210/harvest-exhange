@@ -49,14 +49,14 @@ export default function UploadImage({ setPostform, setImageError, imageError, ed
             {imageInfo && (
                 <img
                     src={imageInfo?.secure_url}
-                    style={{ width: "400px", display: "block" }}
+                    style={{ width: "250px", display: "block" }}
                     alt="produce"
                 />
             ) }
               {editImage && !imageInfo &&(
               <img
               src={editImage}
-              style={{ width: "400px", display: "block" }}
+              style={{ width: "250px", display: "block" }}
               alt="produce"
           />
           )}  

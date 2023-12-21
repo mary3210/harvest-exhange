@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import myStyles from "../styles/Searchbar.css"
+import mylistingStyles from "../styles/listing.css"
 import { FaSearch } from "react-icons/fa";
 const PostList = () => {
   const [posts, setPosts] = useState([]);
@@ -156,10 +157,8 @@ const PostList = () => {
         <div className="btn findbtn1">
           <input className="findBtn" type="submit" value="search" />
         </div>
-      
       </form>
       </div>
-
       <ul>
         {posts &&
           posts.map((post, index) => (
@@ -171,11 +170,11 @@ const PostList = () => {
                 <div className="images">
                   <img alt={post.tags} src={post.image} />
                 </div>
+                <div className="listingText">
+                  <p>${post.price} per {post.unit} </p>
+                </div>
                 <div className="location">
                   <p>Location: {post.location}</p>
-                </div>
-                <div className="listingText">
-                  <p>Price: ${post.price} per {post.unit} </p>
                 </div>
               </Link>
             </div>
