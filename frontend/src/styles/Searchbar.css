@@ -37,7 +37,7 @@ input[type=submit]:hover {
     display:flex;
     gap: 10px;
     border-radius: 15px;
-    margin-top: 20px;
+    padding-top: 20px;
     transition: transform 1s ease-in-out;
     transform: translateX(-100vw);
 }
@@ -52,8 +52,10 @@ input[type=submit]:hover {
 
 .iconContainer{
   display:flex;
-  background-color: red;
+  background-color: #f5ecf9;
   z-index: 1;
+  padding-left: 10px;
+  margin-right: 10px;
 }
 
 #searchIcon{
@@ -62,6 +64,8 @@ input[type=submit]:hover {
   text-align: center;
   vertical-align: middle;
   align-self: center;
+  color: black;
+  cursor: pointer;
 }
 .locationfield {
     padding-bottom: 7px;
