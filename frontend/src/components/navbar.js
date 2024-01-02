@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { NavLink } from 'react-router-dom';
 import { GlobalContext } from "../hooks/GlobalContext";
 import myStyles from "../styles/navbar.css";
+import { IoMdMenu } from "react-icons/io";
 
 function Navbar() {
   document.addEventListener('DOMContentLoaded', function() {
@@ -21,6 +22,7 @@ const { loggedin } = useContext(GlobalContext);
       <nav className="navbar wrapper">
         <div className="flex-container">
           <div className="box1">
+            <div className="navMenu"><IoMdMenu /></div>
             <NavLink to="/" className="nav-link">Home</NavLink>
             <NavLink to="/listing/CreateListing/" className="nav-link">Create Listing</NavLink>
             <NavLink to="/listing/viewmylisting" className="nav-link">View My Listings</NavLink>
@@ -38,6 +40,7 @@ const { loggedin } = useContext(GlobalContext);
       <nav className="navbar wrapper">
         <div className="flex-container">
           <div className="box1">
+          <div className="navMenu"><IoMdMenu /></div>
             <NavLink to="/" className="nav-link">Home</NavLink>
             <NavLink to="/about" className="nav-link">About</NavLink>
           </div>
@@ -47,8 +50,7 @@ const { loggedin } = useContext(GlobalContext);
         </div>
       </nav>
     );
-  }
-  
+  } 
 }
 
 export default Navbar;

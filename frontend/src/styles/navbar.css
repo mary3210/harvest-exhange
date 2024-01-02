@@ -55,3 +55,17 @@
 .navbar a.active:before {
     transform: scaleX(1);
 }
+
+.navMenu{
+    display:none;
+}
+
+@media screen and (max-width: 705px){
+    .navbar a {
+        display: none;
+    }
+
+    .navMenu{
+        display:block;
+    }
+}
