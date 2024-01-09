@@ -19,16 +19,29 @@ function Navbar() {
     setShowDropdown(false);
   }
 
-  document.addEventListener('DOMContentLoaded', function() {
-    let currentPath = window.location.pathname;
-    let navLinks = document.querySelectorAll('.navbar .nav-link');
-    navLinks.forEach(function(link) {
-        if (link.getAttribute('href') === currentPath) {
-            link.classList.add('active');
+//   document.addEventListener('DOMContentLoaded', function() {
+//     let currentPath = window.location.pathname;
+//     let navLinks = document.querySelectorAll('.navbar .nav-link');
+//     navLinks.forEach(function(link) {
+//         if (link.getAttribute('href') === currentPath) {
+//             link.classList.add('active');
             
-        }
-    });
-});
+//         }
+//     });
+// });
+
+// document.addEventListener('DOMContentLoaded', function() {
+//   debugger;
+//   let currentPath = window.location.pathname;
+//   let navLinks = document.querySelectorAll('.navbar .hidden-nav-link');
+//   navLinks.forEach(function(link) {
+//       if (link.getAttribute('href') === currentPath) {
+//           link.classList.add('mobileIconNav');
+          
+//       }
+//   });
+// });
+
 const { loggedin } = useContext(GlobalContext);
   if (loggedin) {
     return (
