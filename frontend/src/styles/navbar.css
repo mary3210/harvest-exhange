@@ -1,8 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Raleway&display=swap');
 
+body{
+    margin-top: 150px;
+    background-color: #c899dd30;
+}
+
 .navbar.wrapper {
     width: 100%;
     margin: 0 auto;
+    position: fixed;
+    z-index: 2;
+    top: 0;
 }
 
 .flex-container {
@@ -60,12 +68,43 @@
     display:none;
 }
 
+navbar a:hover {
+ color: white;
+}
+
+
 @media screen and (max-width: 705px){
-    .navbar a {
-        display: none;
-    }
+    
 
     .navMenu{
-        display:block;
+        position:relative;
+        display:inline-block;
+        
+        
     }
+
+    .dropdown1{
+        display:block;
+        position: fixed;
+        top: 105px;
+        z-index: 1000; 
+        width: 100vw;
+        height: 100vh;
+        right:-37px;
+        background-color: #aedd99;
+
+    }
+    .dropdown1 li {
+        list-style: none;
+        display:block;
+        z-index: 1000;
+    }
+    .nav-link {
+        display:none;
+    }
+    .navbar a:before {
+        display: none;
+    }
+    
+    
 }
