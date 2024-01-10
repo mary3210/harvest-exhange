@@ -3,15 +3,14 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
-
   "dependencies": {
-    "@passageidentity/passage-node": "^2.6.0",
+    "@passageidentity/passage-node": "^2.8.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
     "fetch": "^1.1.0",
-    "mongoose": "^7.6.2",
-    "jose": "^3.0.0"
+    "jose": "^3.0.0",
+    "mongoose": "^7.6.2"
   },
   "scripts": {
     "start": "node server.js",
