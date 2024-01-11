@@ -7,7 +7,6 @@ import { TbGridDots } from "react-icons/tb";
 
 const PostList = () => {
   const [posts, setPosts] = useState([]);
-  const BASE_URL = "";
   const [filter, setFilter] = useState({
     location: "",
     distance: "",
@@ -45,8 +44,7 @@ const PostList = () => {
 
   const getPosts = async () => {
     try {
-      console.log(BASE_URL);
-      const response = await fetch(BASE_URL + "/listing");
+      const response = await fetch(process.env.REACT_APP_LOCAL_URL + "/listing");
       const allPosts = await response.json();
       console.log(allPosts);
       setPosts(allPosts);
@@ -57,10 +55,7 @@ const PostList = () => {
   async function DoFilterTask(e) {
     try {
       e.preventDefault();
-      const filteredResponse = await fetch(
-        "/listing?" +
-          new URLSearchParams(filter).toString()
-      );
+      const filteredResponse = await fetch(process.env.REACT_APP_LOCAL_URL + "/listing?" + new URLSearchParams(filter).toString());
       const allFilteredPosts = await filteredResponse.json();
       console.log(allFilteredPosts);
       setPosts(allFilteredPosts);

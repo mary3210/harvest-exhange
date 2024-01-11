@@ -13,9 +13,7 @@ function ViewUsersListings() {
     useEffect(() => {
         async function getPost() {
             try {
-                const response = await fetch(
-                    `/listing/user/${user._id}`
-                );
+                const response = await fetch(process.env.REACT_APP_LOCAL_URL + `/listing/user/${user._id}`);
                 const result = await response.json();
                 setShowDeleteConfirmation(Array(result.length).fill(false));
                 setPost(result);
@@ -42,18 +40,14 @@ function ViewUsersListings() {
 
     async function handleDeleteConfirm(postId) {
         try {
-            const requestOptions = {
+            await fetch(process.env.REACT_APP_LOCAL_URL + `/listing/${postId}`, {
                 method: "DELETE",
                 headers: {
                     "Content-Type": "application/json",
                     authorization:
                         "Bearer " + localStorage.getItem("psg_auth_token"),
                 },
-            };
-            await fetch(
-                `/listing/${postId}`,
-                requestOptions
-            );
+            });
             // After deletion, update the state to re-render the component
             setPost((prevPosts) =>
                 prevPosts.filter((post) => post._id !== postId)

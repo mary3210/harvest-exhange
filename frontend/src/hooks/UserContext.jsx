@@ -12,18 +12,15 @@ export const UserProvider = ({ children }) => {
     useEffect(() => {
         const getUserProfile = async () => {
             try {
-                const response = await fetch(
-                    "/user/getUserProfile",
-                    {
-                        method: "GET",
-                        headers: {
-                            "content-Type": "application/json",
-                            authorization:
-                                "Bearer " +
-                                localStorage.getItem("psg_auth_token"),
-                        },
-                    }
-                );
+                const response = await fetch(process.env.REACT_APP_LOCAL_URL + "/user/getUserProfile", {
+                    method: "GET",
+                    headers: {
+                        "content-Type": "application/json",
+                        authorization:
+                            "Bearer " +
+                            localStorage.getItem("psg_auth_token"),
+                    },
+                });
                 const resp = await response.json();
                 if (resp.error) {
                     navigate("/login");

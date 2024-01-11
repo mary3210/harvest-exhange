@@ -19,8 +19,6 @@ function CreateListing() {
         unit: "lb",
     });
 
-    const URL = "";
-
     const handleChange = (e) => {
         const userInput = { ...postForm };
         userInput[e.target.name] = e.target.value;
@@ -68,7 +66,7 @@ function CreateListing() {
                 },
                 body: JSON.stringify(currentState),
             };
-            const response = await fetch(URL + "/listing", requestOptions);
+            const response = await fetch(process.env.REACT_APP_LOCAL_URL + "/listing", requestOptions);
             const newPost = await response.json();
             setPostform([...post, newPost]);
             navigate("/");

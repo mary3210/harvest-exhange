@@ -5,12 +5,11 @@ import { Link } from "react-router-dom";
 const ListingDetails = (props) => {
     const [post, setPost] = useState(null);
     const { id } = useParams();
-    const BASE_URL = "/";
 
     const getPost = useCallback(
         async () => {
             try {
-                const response = await fetch(BASE_URL + `listing/${id}`);
+                const response = await fetch(process.env.REACT_APP_LOCAL_URL + `/listing/${id}`);
                 const result = await response.json();
                 console.log(result);
                 console.log(id);
