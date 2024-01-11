@@ -5,7 +5,6 @@ const userController = require("./controllers/user-controller");
 const listingController = require("./controllers/listing-controller")
 
 const app = express();
-const PORT = 8000;
 const CLIENT_URL = "http://localhost:3000" ;
 
 require("dotenv").config();
@@ -63,6 +62,6 @@ app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, '../frontend', 'build', 'index.html'));
 });
 
-app.listen(PORT, () => {
+app.listen(process.env.PORT || 8000, () => {
   console.log(`listening on port ${PORT}`);
 });
