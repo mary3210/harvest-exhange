@@ -57,12 +57,14 @@ app.post("/auth", async (req, res) => {
   }
 });
 
-app.use(express.static('frontend/build'));
-const path = require('path');
-app.get('*', (req, res) => { 
-  res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
-});
-
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);
 });
+
+if (process.env.NODE_ENV) { 
+  app.use(express.static('frontend/build'));
+  const path = require('path');
+  app.get('*', (req, res) => { 
+    res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
+  });
+}

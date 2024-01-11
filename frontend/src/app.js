@@ -13,12 +13,11 @@ import ViewUsersListings from "./components/ViewUsersListings";
 import { UserProvider } from "./hooks/UserContext";
 import { GlobalProvider } from "./hooks/GlobalContext";
 import About from "./views/About";
-import Header from "./components/Header";
+
 function App() {
     return (
         <GlobalProvider>
             <PassageProvider appId={process.env.REACT_APP_PASSAGE_APP_ID}>
-                
                 <Navbar/>
                 <Routes>
                     <Route path="/" element={<Home/>}></Route>
