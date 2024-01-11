@@ -7,7 +7,7 @@ import { TbGridDots } from "react-icons/tb";
 
 const PostList = () => {
   const [posts, setPosts] = useState([]);
-  const BASE_URL = "http://localhost:8000";
+  const BASE_URL = "";
   const [filter, setFilter] = useState({
     location: "",
     distance: "",
@@ -58,7 +58,7 @@ const PostList = () => {
     try {
       e.preventDefault();
       const filteredResponse = await fetch(
-        "http://localhost:8000/listing?" +
+        "/listing?" +
           new URLSearchParams(filter).toString()
       );
       const allFilteredPosts = await filteredResponse.json();

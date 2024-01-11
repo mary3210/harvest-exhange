@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const ListingDetails = (props) => {
     const [post, setPost] = useState(null);
     const { id } = useParams();
-    const BASE_URL = "http://localhost:8000/";
+    const BASE_URL = "/";
 
     const getPost = useCallback(
         async () => {

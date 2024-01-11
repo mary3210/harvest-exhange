@@ -19,7 +19,7 @@ function CreateListing() {
         unit: "lb",
     });
 
-    const URL = "http://localhost:8000";
+    const URL = "";
 
     const handleChange = (e) => {
         const userInput = { ...postForm };

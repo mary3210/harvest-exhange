@@ -14,7 +14,7 @@ function ViewUsersListings() {
         async function getPost() {
             try {
                 const response = await fetch(
-                    `http://localhost:8000/listing/user/${user._id}`
+                    `/listing/user/${user._id}`
                 );
                 const result = await response.json();
                 setShowDeleteConfirmation(Array(result.length).fill(false));
@@ -51,7 +51,7 @@ function ViewUsersListings() {
                 },
             };
             await fetch(
-                `http://localhost:8000/listing/${postId}`,
+                `/listing/${postId}`,
                 requestOptions
             );
             // After deletion, update the state to re-render the component

@@ -11,7 +11,7 @@ function EditListing(props) {
     const [titleError, setTitleError] = useState('');
     const { id } = useParams();
     const { data } = props;
-    const URL = `http://localhost:8000/listing/`;
+    const URL = `/listing/`;
     const [editForm, setEditForm] = useState({
         title: "",
         text: "",

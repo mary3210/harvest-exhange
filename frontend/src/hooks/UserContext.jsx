@@ -13,7 +13,7 @@ export const UserProvider = ({ children }) => {
         const getUserProfile = async () => {
             try {
                 const response = await fetch(
-                    "http://localhost:8000/user/getUserProfile",
+                    "/user/getUserProfile",
                     {
                         method: "GET",
                         headers: {
