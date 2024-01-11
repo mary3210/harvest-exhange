@@ -1,8 +1,8 @@
 const express = require("express");
 const Passage = require("@passageidentity/passage-node");
 const cors = require("cors");
-const userController = require("./controllers/user-controller");
-const listingController = require("./controllers/listing-controller")
+const userController = require("./backend/controllers/user-controller");
+const listingController = require("./backend/controllers/listing-controller");
 
 const app = express();
 const CLIENT_URL = "http://localhost:3000" ;
@@ -56,10 +56,10 @@ app.post("/auth", async (req, res) => {
   }
 });
 
-app.use(express.static('../frontend/build'));
+app.use(express.static('./frontend/build'));
 const path = require('path');
 app.get('*', (req, res) => { 
-  res.sendFile(path.resolve(__dirname, '../frontend', 'build', 'index.html'));
+  res.sendFile(path.resolve(__dirname, './frontend', 'build', 'index.html'));
 });
 
 app.listen(process.env.PORT, () => {
