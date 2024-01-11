@@ -12,8 +12,7 @@
     "mongoose": "^7.6.2"
   },
   "scripts": {
-    "start": "node backend/server.js",
-    "dev": "nodemon server.js",
+    "start": "cd backend && node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
