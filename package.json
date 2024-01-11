@@ -1,5 +1,9 @@
 {
+  "name": "harvest-exchange",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./backend/server.js",
   "scripts": {
-    "start": "cd backend && npm install -g && npm run start"
+    "start": "cd ./backend && npm install && npm run start"
   }
 }
