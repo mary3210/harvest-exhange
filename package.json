@@ -2,7 +2,7 @@
   "name": "harvest-exchange",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "backend/server.js",
   "dependencies": {
     "@passageidentity/passage-node": "^2.8.0",
     "cors": "^2.8.5",
