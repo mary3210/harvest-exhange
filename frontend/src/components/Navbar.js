@@ -143,6 +143,7 @@ function Navbar() {
     } else {
         return (
             <nav className="navbar wrapper">
+              <Header />
                 <div className="flex-container">
                     <div className="box1">
                         <div className="navMenu">
