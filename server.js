@@ -56,11 +56,13 @@ app.post("/auth", async (req, res) => {
   }
 });
 
-app.use(express.static('frontend/build'));
-const path = require('path');
-app.get('*', (req, res) => { 
-  res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
-});
+if(process.env.NODE_ENV === 'production'){
+  app.use(express.static('frontend/build'));
+  const path = require('path');
+  app.get('*', (req, res) => { 
+    res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
+  });
+}
 
 app.listen(process.env.PORT, () => {
   console.log(`listening on port ${process.env.PORT}`);

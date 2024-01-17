@@ -23,15 +23,15 @@ router.get("/", async (req, res) => {
     //store lat & long into zipinfo
     // filter then adds a key called zipCoords containing the distance away from said coordinates
     if (location && distance) {
-        await fetch(`https://www.mapquestapi.com/geocoding/v1/address?key=${process.env.GEOCODE_API_KEY}&location=${location}`)
+        await fetch(`https://geocode-api.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates?address=${location}&outFields=Addr_type&f=json&token=${process.env.GEOCODE_API_KEY}`)
         .then((res) => res.json())
         .then( (json) => {
-            const zipInfo = (json.results[0].locations[0].latLng);
+            const zipInfo = (json.candidates[0].location);
             filter.zipCoords = { 
                 $near: {
                     $geometry: {
                         type: "Point",
-                        coordinates: [zipInfo.lng, zipInfo.lat]
+                        coordinates: [zipInfo.x, zipInfo.y]
                     },
                     $maxDistance: (Number(distance) * 1609.344)
                 }
@@ -62,12 +62,10 @@ router.get("/", async (req, res) => {
         ...(category && {category: category}),
         ...(subtypes && {subtypes: subtypes})
     };
-console.log("filter");
-    console.log(filter);
-    console.log("end filter");
+
     //search listing by whatever is in filter
     const allListing = await Listing.find(filter);
-    console.log(allListing);
+    // console.log(allListing);
     res.status(200).json(allListing);
   } catch (err) {
     res.status(400).json({ error: err });
@@ -98,22 +96,25 @@ router.get("/user/:id", async (req, res) => {
 // creates user listing
 router.post("/", async (req, res) => {
     try {
-        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         const userID = await passage.authenticateRequest(req);
         if (userID) {
             // user is authenticated
             const getUser = await User.findOne({passage_id: userID});
-            console.log(getUser)
             if (getUser) { 
                 req.body.userID = getUser._id;
                 const location = req.body.location;
-                fetch(`https://www.mapquestapi.com/geocoding/v1/address?key=${process.env.GEOCODE_API_KEY}&location=${location}`)
-                .then((res) => res.json())
+                fetch(`https://geocode-api.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates?address=${location}&outFields=Addr_type&f=json&token=${process.env.GEOCODE_API_KEY}`)
+                .then((res) => {
+                  if (res.status === 200) {
+                    console.log(res.json)
+                    return res.json();
+                  } else {
+                    throw new Error('geolocation api failed to return valid json');
+                  }
+                })
                 .then( async (json) => {
-                    const zipInfo = (json.results[0].locations[0].latLng);
-                    console.log(req.body)
-                    req.body.zipCoords = { type: "Point", coordinates: [zipInfo.lng, zipInfo.lat]};
-                    
+                    const zipInfo = (json.candidates[0].location);
+                    req.body.zipCoords = { type: "Point", coordinates: [zipInfo.x, zipInfo.y]};
                     const newListing = await Listing.create(req.body);
                     res.status(200).json(newListing);
                 }).catch((err) => {
@@ -139,11 +140,17 @@ router.put("/:id", async (req, res) => {
         const getUser = await User.findOne({passage_id: userID});
         if (getUser) {
         if (req.body.location){
-            await fetch(`https://www.mapquestapi.com/geocoding/v1/address?key=${process.env.GEOCODE_API_KEY}&location=${req.body.location}`)
-            .then((res) => res.json())
+          
+          console.log('meowww')
+            await fetch(`https://geocode-api.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates?address=${req.body.location}&outFields=Addr_type&f=json&token=${process.env.GEOCODE_API_KEY}`)
+            .then((res) => 
+              res.json())
             .then(async (json) => {
-                const zipInfo = (json.results[0].locations[0].latLng);
-                req.body.zipCoords = { type: "Point", coordinates: [zipInfo.lng, zipInfo.lat] }
+              console.log(json);
+                const zipInfo = (json.candidates[0].location);
+                console.log('meow1')
+                req.body.zipCoords = { type: "Point", coordinates: [zipInfo.x, zipInfo.y] }
+                console.log('meow2');
             })
         };
         const updatedListing = await Listing.findOneAndUpdate({
