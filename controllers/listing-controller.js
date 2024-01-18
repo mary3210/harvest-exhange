@@ -139,29 +139,27 @@ router.put("/:id", async (req, res) => {
         // const identifier = email ? email : phone;
         const getUser = await User.findOne({passage_id: userID});
         if (getUser) {
-        if (req.body.location){
-          
-          console.log('meowww')
+          if (req.body.location){
             await fetch(`https://geocode-api.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates?address=${req.body.location}&outFields=Addr_type&f=json&token=${process.env.GEOCODE_API_KEY}`)
             .then((res) => 
-              res.json())
+              res.json()
+            )
             .then(async (json) => {
               console.log(json);
-                const zipInfo = (json.candidates[0].location);
-                console.log('meow1')
-                req.body.zipCoords = { type: "Point", coordinates: [zipInfo.x, zipInfo.y] }
-                console.log('meow2');
-            })
-        };
-        const updatedListing = await Listing.findOneAndUpdate({
-                _id: req.params.id,
-                userID: getUser._id
+              const zipInfo = (json.candidates[0].location);
+              req.body.zipCoords = { type: "Point", coordinates: [zipInfo.x, zipInfo.y] };
+            });
+          };
+          const updatedListing = await Listing.findOneAndUpdate({
+              _id: req.params.id,
+              userID: getUser._id
             },
             req.body,
             { new: true, runValidators: true }
-        );
-        res.status(201).json(updatedListing);
-        }} else {
+          );
+          res.status(201).json(updatedListing);
+        }
+    } else {
         res.status(400).json({ error: "The user is not logged in to post things" });
     }
   } catch (err) {
