@@ -21,5 +21,5 @@
 # Future Features
  - incorporating websockets to be able to message other users 
  - rating system for each user
- - storefront for each user to show what active listings that particulary user
+ - storefront for each user to show what active listings that user has
  
