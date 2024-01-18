@@ -1,0 +1,26 @@
+
+.listingDetailsPage {
+
+    display: flex;
+    justify-content: center;
+    padding-top: 200px;
+    background-color: white;
+    margin: 0 auto;
+    height: 100vh;
+    max-width:1500px;
+}
+
+.listingDetailImage img {
+    height: 400px;
+    width: 500px;
+}
+
+.listingDetailInfo {
+    margin-left: 50px;
+}
+
+.listingDetailInfo h1 {
+ line-height: 5px;
+ margin-top: 10px;
+ padding-bottom: 20px;
+}

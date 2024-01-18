@@ -3,7 +3,7 @@ import ListingDetails from '../components/ListingDetails'
 
 function Listing() {
   return (
-    <div>Listing
+    <div>
         <ListingDetails/>
     </div>
   )

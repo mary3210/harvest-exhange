@@ -115,8 +115,12 @@ input[type=submit]:hover {
     border-image-slice: 1;
   }
 
-     input[type=Number]{
+     #minprice{
         width:50px;
+     }
+
+     #maxprice{
+      width:50px;
      }
 
      h2 {

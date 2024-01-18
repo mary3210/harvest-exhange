@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
+import myStyles from "../styles/ListingDetails.css";
 
 const ListingDetails = (props) => {
     const [post, setPost] = useState(null);
@@ -26,16 +27,22 @@ const ListingDetails = (props) => {
 
   return (
     <div className="showpage">
-      <h1>Listing Details page</h1>
+      
 
       {post &&
         post.map((post) => (
-          <div>
-            <h1>{post?.title}</h1>
+          <div className="listingDetailsPage">
+            <div className="listingDetailImage">
             <img src={post?.image} alt={post?.tags} />
+            </div>
+            <div className="listingDetailInfo">
+            <h1>{post?.title}</h1>
             <p>Location: {post?.location}</p>
-            <p>Price: {post?.price}</p>
+            <p>${post?.price} per {post?.unit}</p>
+            <p><b>Plant/Produce/Seed:</b> {post?.category} </p>
+            <h2>Description</h2>
             <p>{post?.text}</p>
+            </div>
           </div>
         ))}
     </div>

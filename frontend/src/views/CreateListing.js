@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import UploadImage from "../components/UploadImage";
+import myStyles from "../styles/CreateListing.css";
 
 function CreateListing() {
     const [post, setPost] = useState([]);
@@ -76,14 +77,14 @@ function CreateListing() {
     };
 
     return (
-        <div>
+        <div className="createListingPage">
             <section>
                 <h2>Create New Listing</h2>
-                <div className="createListing">
+                <div >
                     <br />
                     <form onSubmit={handleSubmit}>
                         <br />
-                        <div>
+                        <div className="titleInput">
                             <label>
                                 Title:
                                 <input
@@ -98,7 +99,7 @@ function CreateListing() {
                             </label>
                         </div>
                         <br />
-                        <div>
+                        <div className="zipcodeInput">
                             <label>
                                 zipcode:
                                 <input
@@ -112,7 +113,7 @@ function CreateListing() {
                                 <div style={{ color: 'red' }}>{locationError}</div>
                             </label>
                         </div>
-                        <div className="imageinput">
+                        <div className="imageInput">
                             <label>
                                 Image:
                                 <UploadImage setPostform={setPostform} imageError={imageError}
@@ -120,7 +121,7 @@ function CreateListing() {
                                 <div style={{ color: 'red' }}>{imageError}</div>
                             </label>
                         </div>
-                        <div className="txt">
+                        <div className="txtInput">
                             <label>
                                 Description:
                                 <textarea
