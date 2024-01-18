@@ -1,10 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Raleway&display=swap');
 
-body{
-    margin-top: 150px;
-    background-color: #c899dd30;
-}
-
 .navbar.wrapper {
     width: 100%;
     margin: 0 auto;
