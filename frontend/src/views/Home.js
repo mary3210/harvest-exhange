@@ -4,7 +4,7 @@ import ViewListings from '../components/ViewListings';
 
 function Home() {
   return (
-    <div>
+    <div className='homeContainer'>
         <ViewListings/>
     </div>
   )
