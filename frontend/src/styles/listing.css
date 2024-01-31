@@ -1,3 +1,13 @@
+:root {
+    --nav-bar-height: 121px;
+}
+
+@media screen and (min-width: 1200px) {
+    :root {
+        --nav-bar-height: 121px;
+    }
+}
+
 nav.navbar.wrapper {
     height: var(--nav-bar-height);
 }
@@ -6,20 +16,16 @@ nav.navbar.wrapper {
     max-width: 1500px;
     margin: 0 auto;
     overflow: hidden;
-    background-color: #c899dd30;
-    /* height: 100vh; */
-     overflow-x:hidden;
-    
-    
-    
+    background-color: #c899dd30;  
 }
 
 body{
-    overflow-x:hidden;
-    height: calc(100% + var(--nav-bar-height));
+    overflow:hidden;
+    
 } 
-.HomeContainer {
-    overflow-x: scroll;
+.homeContainer {
+    overflow-y: scroll;
+    height: calc(100vh - var(--nav-bar-height));
 }
 
 .HomePosts {
@@ -101,14 +107,4 @@ svg {
     width: 50px;
     height: 50px;
     cursor: pointer;
-}
-
-@media screen and (min-width: 1200px)
-:root {
-    --nav-bar-height: 200px;
-}
-
-@media screen and (min-width: 600px)
-:root {
-    --nav-bar-height: 400px;
 }
