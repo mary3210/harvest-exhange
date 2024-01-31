@@ -3,9 +3,7 @@ import myStyles from "../styles/Header.css";
 function Header() {
   return (
     <div className='Header'>
-        
-            Harvest Exchange
-        
+      Harvest Exchange
     </div>
   )
 }
