@@ -17,6 +17,7 @@ nav.navbar.wrapper {
     margin: 0 auto;
     overflow: hidden;
     background-color: #c899dd30;  
+    min-height: 100%;
 }
 
 body{
@@ -49,8 +50,8 @@ body{
 }
 
 img {
-    width: 250px;
-    height:200px;
+    width: 370px;
+    height:350px;
 }
 
 .HomePosts a {
@@ -98,6 +99,7 @@ body{
     display: flex;
     justify-content: right;
     margin-top: 25px;
+    margin-right: 20px;
 }
 
 .everythingbar {
