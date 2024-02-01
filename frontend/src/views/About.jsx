@@ -1,9 +1,23 @@
 import React from "react";
-
+import myStyles from "../styles/About.css"
 function About() {
     return (
-        <div>
-            About
+        <div className="aboutContainer">
+            <div className="about">
+            <div className="aboutHeaderImage" id="aboutImage">
+                <img src="https://res.cloudinary.com/rent-blogs/images/f_auto,q_auto/v1678287865/vegetable_garden_hero/vegetable_garden_hero.jpg?_i=AA" alt="seedling" >
+                </img>
+            </div>
+            <div className="aboutHeader">
+         
+            <p>About Us</p>
+            </div>
+
+            <div className="aboutContents">
+            <div className="aboutImage">
+            <img src="https://oldworldgardenfarms.com/wp-content/uploads/2021/06/grow-cucumber-plants.jpg" alt="cucumber" />
+            </div>
+            <div className="textContents">
             <p>
                 Harvest Exchange stands out as a cutting-edge app committed to
                 addressing the pressing issues of food waste while
@@ -28,6 +42,9 @@ function About() {
                 garden's abundance plays a pivotal role in a collective
                 commitment to well-being and environmental stewardship.
             </p>
+            </div>
+            </div>
+            </div>
         </div>
     );
 }

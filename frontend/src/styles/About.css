@@ -1,0 +1,46 @@
+.aboutContainer{
+    overflow-y: scroll;
+    height: calc(100vh - var(--nav-bar-height));
+}
+
+.aboutHeaderImage img{
+    width:1500px;
+    height:650px;
+}
+
+
+.about{
+    max-width: 1500px;
+    margin: 0 auto; 
+}
+
+.aboutHeader{
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+}
+
+.aboutContents{
+    display:flex;
+}
+
+
+.textContents {
+    padding: 10px;
+}
+
+.aboutHeader p{
+    font-size: 50px;
+}
+
+.aboutImage img{
+  width:600px;
+  height: 1000px;
+}
+
+.textContents p{
+    font-size:30px;
+    margin-top: 0px;
+    line-height: 45px;
+    padding-left: 15px;
+}
