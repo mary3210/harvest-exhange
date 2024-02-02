@@ -95,12 +95,12 @@ navbar a:hover {
     .navbar.wrapper{
         display:flex;
         flex-direction: row-reverse;
-        padding-top: 10px;
+        padding-top: 5px;
         box-sizing: border-box;
     }
 
     .flex-container{
-        height:5px;
+        border-bottom: 1px solid white;
     }
 
    :root{
