@@ -19,6 +19,8 @@ function App() {
         <GlobalProvider>
             <PassageProvider appId={process.env.REACT_APP_PASSAGE_APP_ID}>
                 <Navbar/>
+                <div className="spacer">
+                </div>
                 <Routes>
                     <Route path="/" element={<Home/>}></Route>
                     <Route path="/listing/:id" element={<Listing/>}></Route>

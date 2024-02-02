@@ -27,8 +27,7 @@
 
 .box2 {
     display: flex;
-    justify-content: flex-end;
-    
+    justify-content: flex-end;  
 }
 
 .navbar a {
@@ -80,6 +79,9 @@ navbar a:hover {
     display: block;
 }
 
+.spacer {
+    height: var(--nav-bar-height);
+}
 
 @media screen and (max-width: 705px){
     
@@ -90,11 +92,24 @@ navbar a:hover {
         
         
     }
+    .navbar.wrapper{
+        display:flex;
+        flex-direction: row-reverse;
+        padding-top: 10px;
+        box-sizing: border-box;
+    }
 
+    .flex-container{
+        height:5px;
+    }
+
+   :root{
+    --nav-bar-height:70px;
+   }
     .dropdown1{
         display:block;
         position: fixed;
-        top: 105px;
+        top: 55px;
         z-index: 1000; 
         width: 100vw;
         height: 100vh;

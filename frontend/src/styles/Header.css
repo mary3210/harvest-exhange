@@ -9,3 +9,9 @@
     width: 100%;
     padding-top:20px;
 }
+
+@media screen and (max-width: 705px){
+    .Header{
+        padding-top: 5px;
+    }
+}
