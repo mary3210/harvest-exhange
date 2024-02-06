@@ -4,6 +4,22 @@
  display:inline-block;
 }
 
+.everythingbar {
+  display:flex;
+  justify-content: space-between;
+}
+
+.filterswiperwrapper .swiper-slide,
+.filterswiperwrapper .swiper-slide > div {
+  width: auto;
+}
+
+.filterswiperwrapper .swiper-slide > div {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
 input[type=submit] {
     display: inline-block;
     font-size: 17px;
@@ -26,20 +42,17 @@ input[type=submit]:hover {
 
 .Searchbar {
     display:flex;
-    width: 100%;
     justify-content: left;
-    line-height: 50px;
-    height: 100px;
-    
+    line-height: 50px; 
 }  
  
 .search-form {
     display:flex;
     gap: 10px;
     border-radius: 15px;
-    padding-top: 20px;
     transition: transform 1s ease-in-out;
     transform: translateX(-100vw);
+    max-width: calc(100vw - 70px);
 }
 
 .search-form.expand{
@@ -82,9 +95,7 @@ input[type=submit]:hover {
 
 
 .locationdiv {
-    position: relative;
-    width: 200px;
-    
+    position: relative; 
 }
 
 .locationlabel {
@@ -128,14 +139,7 @@ input[type=submit]:hover {
      }
 
      /* distance selector */
-
-     .distance {
-        margin-bottom: 20px;
-      }
-      
-      
       .distance select {
-        width: 100%;
         padding: 10px;
         font-size: 16px;
         border: 1px solid #ccc;
@@ -172,13 +176,11 @@ input[type=submit]:hover {
 
       .category {
         position: relative;
-        margin-bottom: 20px;
         width: 180px;
       }
       
       
       .category select {
-        width: 100%;
         padding: 10px;
         font-size: 16px;
         border: 1px solid #ccc;
@@ -229,8 +231,7 @@ input[type=submit]:hover {
 
 /* min and max price */
 
-.minprice {
-    margin-bottom: 20px;
+  .minprice {
     position: relative;
   }
   
@@ -272,7 +273,6 @@ input[type=submit]:hover {
   }
 
   .maxprice {
-    margin-bottom: 20px;
     position: relative;
   }
   
