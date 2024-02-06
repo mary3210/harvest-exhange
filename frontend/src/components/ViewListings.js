@@ -8,6 +8,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { FreeMode } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/free-mode';
+import  CustomSelect  from '../hooks/CustomSelect.jsx'
 
 const PostList = () => {
   const [posts, setPosts] = useState([]);
@@ -86,6 +87,12 @@ const PostList = () => {
     setFilter(userInput);
   };
 
+  const handleChange3 = (value) => {
+    const userInput = { ...filter };
+    userInput["distance"] = value ==="" ? value : parseInt(value);
+    setFilter(userInput);
+  };
+
   return (
     <div className="Home">
       <div className="everythingbar">
@@ -96,7 +103,7 @@ const PostList = () => {
       <form onSubmit={DoFilterTask} className={`search-form ${isSearchFormExpanded ? "expand" : ""}`}>
         <Swiper modules={[FreeMode]} freeMode={true} slidesPerView="auto" direction="horizontal" wrapperClass="filterswiperwrapper">
           <SwiperSlide>
-            <div className="distance">
+            {/* <div className="distance">
               <select
                 name="distance"
                 id="distance"
@@ -111,7 +118,18 @@ const PostList = () => {
                 <option value="20">20 miles from</option>
                 <option value="25">25 miles from</option>
               </select>
-            </div>
+            </div> */}
+            <CustomSelect
+            DropdownList={[
+              {text:"any distance from", value:''},
+              {text:"1 mile from", value:'1'},
+              {text:"5 miles from", value: '5'},
+              {text:"10 miles from", value: '10'},
+              {text:"15 miles from", value: '15'},
+              {text:"20 miles from", value: '20'},
+              {text:"25 miles from", value: '25'}
+            ]}
+            ReturnValue ={(value) => handleChange3(value)}/>
           </SwiperSlide>
           <SwiperSlide>
             <div className="locationdiv">
