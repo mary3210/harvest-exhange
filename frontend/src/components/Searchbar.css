@@ -105,7 +105,7 @@ position: relative;
 }
 
 .menu-item:hover {
-    background: #0bbfb130;
+    background: #F2F2F2;
 
  }
 
@@ -116,9 +116,97 @@ position: relative;
     min-width: 160px;
     border-radius: 10px;
     box-shadow: 0 0 3px rgba(0,0,0,0.1);
-    outline: none;
 }
 
+.distance select {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    padding-bottom: 8px;
+    background-color: #fff;
+    outline: none;
+    transition: border-color 0.3s;
+    cursor: pointer;
+    position: relative;
+    border: none;
+    border-bottom: 2px solid #c899dd;
+    background: transparent;
+}
+      
+.distance select:hover,
+.distance select:focus {
+    border-image: linear-gradient(to right, #11998e, #38ef7d);
+    border-image-slice: 1;
+}
+      
+/* Styling for the distance options */
+.distance select option {
+    font-size: 16px;
+    background-color: #fff;
+    color: #333;
+}
+      
+      .distance select option:hover {
+        background-color: #f0f0f0;
+      }
+
+
+      /* category selector */
+
+      .category {
+        position: relative;
+        width: 180px;
+      }
+      
+      
+      .category select {
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        padding-bottom: 8px;
+        background-color: #fff;
+        outline: none;
+        transition: border-color 0.3s;
+        cursor: pointer;
+        position: relative;
+        border: none;
+        border-bottom: 2px solid #c899dd;
+        background: transparent;
+      }
+      
+      .category select:hover,
+      .category select:focus {
+        border-image: linear-gradient(to right, #11998e, #38ef7d);
+        border-image-slice: 1;
+      }
+      
+      .category select option {
+        font-size: 16px;
+        background-color: #fff;
+        color: #333;
+      }
+      
+      .category select option:hover {
+        background-color: #f0f0f0;
+      }
+      
+      /* .category .placeholder {
+        position: absolute;
+        top: 50%;
+        left: 10px;
+        transform: translateY(-50%);
+        font-size: 1rem;
+        color: gray;
+        pointer-events: none;
+        transition: 0.2s;
+      } */
+      
+      /* .category.select-up .placeholder {
+        top: -20px;
+        font-size: 12px;
+        color: #11998e;
+        font-weight: 700;
+      } */
 
 /* min and max price */
 
@@ -136,7 +224,7 @@ position: relative;
     min-height: 30px;
 }
 
-.searchinput:focus, .select {
+.searchinput:focus {
     border-image: linear-gradient(to right, #11998e, #38ef7d);
     border-image-slice: 1;
 }
@@ -179,8 +267,4 @@ position: relative;
 .DropdownSelect svg {
 padding-left: 1px;
 height: 20px;
-}
-
-.dropdownItemActive {
-    background-color: #0bbfb1;
 }

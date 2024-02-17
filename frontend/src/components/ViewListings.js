@@ -21,7 +21,7 @@ const PostList = () => {
   });
 
   const [isColumn, setIsColumn] = useState(true)
-  const [isSearchFormExpanded, setIsSearchFormExpanded] = useState(false);
+  const [isSearchFormExpanded, setIsSearchFormExpanded] = useState(true);
  
  const toggleColumn = () => {
   setIsColumn((column) => !column);
@@ -93,6 +93,12 @@ const PostList = () => {
     setFilter(userInput);
   };
 
+  const handleChange4 = (value) => {
+    const userInput = { ...filter };
+    userInput["category"] = value;
+    setFilter(userInput);
+  };
+
   return (
     <div className="Home">
       <div className="everythingbar">
@@ -134,21 +140,21 @@ const PostList = () => {
           <SwiperSlide>
             <div className="locationdiv">
               <input
-              className="locationfield"
+              className="locationfield searchinput"
                 type="text"
                 id="location"
                 name="location"
                 value={filter.location}
                 onChange={handleChange}
-                onFocus={() => moveLabelUp(document.getElementById("location"))}
-                onBlur={() => moveLabelBack(document.getElementById("location"))}
+                onFocus={(e) => moveLabelUp(e.target)}
+                onBlur={(e) => moveLabelBack(e.target)}
               ></input>
-              <label htmlFor="location" className="locationlabel">Zipcode/Address</label>
+              <label htmlFor="location" className="locationlabel searchlabel">Zipcode/Address</label>
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="category">
-              <select
+            {/* <div className="category"> */}
+              {/* <select
                 name="category"
                 id="category"
                 value={filter.category}
@@ -159,19 +165,28 @@ const PostList = () => {
                 <option value="seed">seed</option>
                 <option value="live plant">live plant</option>
               </select>  
-            </div>
+            </div> */}
+            <CustomSelect
+            DropdownList={[
+              {text:"all categories", value:''},
+              {text:"produce", value:'produce'},
+              {text:"seed", value: 'seed'},
+              {text:"live plant", value: 'live plant'}
+            ]}
+            ReturnValue ={(value) => handleChange4(value)}/>
           </SwiperSlide>
           <SwiperSlide>
             <div className="minprice">
-              <label htmlFor="minprice">Min Price</label>
+              <label htmlFor="minprice" className="searchlabel">Min Price</label>
               <input
+              className="searchinput"
                 type="Number"
                 id="minprice"
                 name="minprice"
                 min="0"
                 onChange={handleChange2}
-                onFocus={() => moveLabelUp(document.getElementById("minprice"))}
-                onBlur={() => moveLabelBack(document.getElementById("minprice"))}
+                onFocus={(e) => moveLabelUp(e.target)}
+                onBlur={(e) => moveLabelBack(e.target)}
               ></input>
             </div>
           </SwiperSlide>
@@ -180,15 +195,16 @@ const PostList = () => {
           </SwiperSlide>
           <SwiperSlide>
             <div className="maxprice">
-              <label htmlFor="maxprice">Max Price</label>
+              <label htmlFor="maxprice" className="searchlabel">Max Price</label>
               <input
+              className="searchinput"
                 type="Number"
                 id="maxprice"
                 name="maxprice"
                 min="0"
                 onChange={handleChange2}
-                onFocus={() => moveLabelUp(document.getElementById("maxprice"))}
-                onBlur={() => moveLabelBack(document.getElementById("maxprice"))}
+                onFocus={(e) => moveLabelUp(e.target)}
+                onBlur={(e) => moveLabelBack(e.target)}
               ></input>
             </div>
           </SwiperSlide>
