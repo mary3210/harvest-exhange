@@ -92,6 +92,11 @@ navbar a:hover {
         
         
     }
+    .navMenu svg{
+       min-height: 50px;
+       min-width: 50px; 
+    }
+
     .navbar.wrapper{
         display:flex;
         flex-direction: row-reverse;
@@ -133,4 +138,18 @@ navbar a:hover {
        color: antiquewhite;
     }
     
+    img {
+        width: 270px;
+        height:350px;
+    }
+    
+    .HomePosts {
+        max-width:300px;
+        
+    }
+
+    ul.column {
+        flex-direction: column;
+        align-items: center;
+    }
 }

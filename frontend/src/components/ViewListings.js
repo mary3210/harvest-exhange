@@ -109,22 +109,6 @@ const PostList = () => {
       <form onSubmit={DoFilterTask} className={`search-form ${isSearchFormExpanded ? "expand" : ""}`}>
         <Swiper modules={[FreeMode]} freeMode={true} slidesPerView="auto" direction="horizontal" wrapperClass="filterswiperwrapper">
           <SwiperSlide>
-            {/* <div className="distance">
-              <select
-                name="distance"
-                id="distance"
-                value={filter.distance}
-                onChange={handleChange2}
-              >
-                <option value="">any distance from</option>
-                <option value="1">1 mile from</option>
-                <option value="5">5 miles from</option>
-                <option value="10">10 miles from</option>
-                <option value="15">15 miles from</option>
-                <option value="20">20 miles from</option>
-                <option value="25">25 miles from</option>
-              </select>
-            </div> */}
             <CustomSelect
             DropdownList={[
               {text:"any distance from", value:''},
@@ -153,19 +137,6 @@ const PostList = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            {/* <div className="category"> */}
-              {/* <select
-                name="category"
-                id="category"
-                value={filter.category}
-                onChange={handleChange}
-              >
-                <option value="">all categories</option>
-                <option value="produce">produce</option>
-                <option value="seed">seed</option>
-                <option value="live plant">live plant</option>
-              </select>  
-            </div> */}
             <CustomSelect
             DropdownList={[
               {text:"all categories", value:''},

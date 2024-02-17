@@ -55,7 +55,16 @@ function Navbar() {
                         {link.label}
                       </NavLink>
                     </li>
-                  ))}
+                  ))} 
+                  {loggedin ? (
+            <li><NavLink to="/logout" className="nav-link">
+              Logout
+            </NavLink></li>
+          ) : (
+            <li><NavLink to="/login" className="nav-link">
+              Login
+            </NavLink></li>
+          )}
                 </ul>
               )}
             </div>
