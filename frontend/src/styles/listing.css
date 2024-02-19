@@ -4,7 +4,7 @@
     --nav-bar-height: 121px;
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 706px) {
     :root {
         --nav-bar-height: 121px;
     }
