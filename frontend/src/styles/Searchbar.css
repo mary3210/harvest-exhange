@@ -184,3 +184,7 @@ height: 20px;
 .dropdownItemActive {
     background-color: #0bbfb1;
 }
+
+.dropdownItemActive:hover {
+    background-color: #0bbfb1;
+}

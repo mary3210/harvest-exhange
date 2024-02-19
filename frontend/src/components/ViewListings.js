@@ -197,17 +197,20 @@ const PostList = () => {
           posts.map((post, index) => (
             <div className="HomePosts" key={index}>
               <Link key={post._id} to={`/listing/${post._id}`}>
-                <div className="listingTitle">
-                  <h1> {post.title}</h1>
-                </div>
-                <div className="images">
+              <div className="images">
                   <img alt={post.tags} src={post.image} />
                 </div>
+                <div className="HomePostsContent">
+                <div className="listingTitle">
+                  <h2> {post.title}</h2>
+                </div>
+                
                 <div className="listingText">
                   <p>${post.price} per {post.unit} </p>
                 </div>
                 <div className="location">
                   <p>Location: {post.location}</p>
+                </div>
                 </div>
               </Link>
             </div>
