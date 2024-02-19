@@ -10,6 +10,10 @@
     padding-top:20px;
 }
 
+.Header svg{
+    padding-left: 6px;
+}
+
 @media screen and (max-width: 705px){
     .Header{
         padding-top: 0px;
