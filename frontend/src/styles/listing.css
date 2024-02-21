@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Raleway&display=swap')
+
 
 :root {
     --nav-bar-height: 121px;
@@ -98,6 +98,7 @@ ul.column {
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
+    padding: 0;
 }
 
 ul.row {
