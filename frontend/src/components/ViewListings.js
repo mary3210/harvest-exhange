@@ -112,7 +112,10 @@ const PostList = () => {
   };
 
   return (
+    <div>
+    <div className="homeBanner"><h2>The Market</h2></div>
     <div className="Home">
+      
       <div className="everythingbar">
       <div className="Searchbar">
         <div className="iconContainer">
@@ -228,6 +231,7 @@ const PostList = () => {
             </div>
           ))}
       </ul>
+    </div>
     </div>
   );
 };

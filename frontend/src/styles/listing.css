@@ -19,7 +19,7 @@ nav.navbar.wrapper {
     max-width: 1500px;
     margin: 0 auto;
     overflow: hidden;
-    background-color: #c899dd30;  
+    /* background-color: #c899dd30;   */
     min-height: 100%;
 }
 
@@ -31,6 +31,7 @@ body{
 .homeContainer {
     overflow-y: scroll;
     height: calc(100vh - var(--nav-bar-height));
+    background-color: #c899dd30;
 }
 
 .HomePosts {
@@ -125,6 +126,29 @@ ul.row {
 .HomePostsContent {
     padding: 20px;
 }
+
+.homeBanner {
+    display: flex;
+    background-image: linear-gradient( #aedd99, #c899dd01);
+    justify-content: center;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    width: 100%;
+    font-family: 'Montserrat';
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    font-weight: 100;
+    font-size: 20px;
+
+}
+
+.homeBanner h2 {
+    margin-bottom: 5px;
+    font-size: 20px;
+    font-weight: normal;
+    font-style: normal;
+}
+
 
 @media screen and (max-width:1289px) {
     ul.column {
