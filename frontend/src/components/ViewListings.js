@@ -52,7 +52,7 @@ const PostList = () => {
     try {
       const response = await fetch(process.env.REACT_APP_LOCAL_URL + "/listing");
       const allPosts = await response.json();
-      setPosts(() => []);
+      setPosts([]);
       for (let i=0; i < allPosts.length; i++) {
         setTimeout(function(){
           setPosts((previousPosts) => [...previousPosts, allPosts[i]]);
