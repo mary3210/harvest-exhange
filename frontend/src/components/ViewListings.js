@@ -13,6 +13,7 @@ import  CustomSelect  from '../hooks/CustomSelect.jsx'
      
 const PostList = () => {
   const [posts, setPosts] = useState([]);
+  const [delayedPosts, setDelayedPosts] = useState([]);
   const [filter, setFilter] = useState({
     location: "",
     distance: "",
@@ -53,12 +54,7 @@ const PostList = () => {
       e?.preventDefault();
       const response = await fetch(process.env.REACT_APP_LOCAL_URL + "/listing?" + new URLSearchParams(filter).toString());
       const allPosts = await response.json();
-      setPosts([]);
-      for (let i=0; i < allPosts.length; i++) {
-        setTimeout(function(){
-          setPosts((previousPosts) => [...previousPosts, allPosts[i]]);
-        }, 250*(i+1));
-      }
+      setPosts(allPosts);
     } catch (err) {
       console.error(err);
     }
@@ -67,6 +63,26 @@ const PostList = () => {
   useEffect(() => {
     getPosts();
   }, []);
+
+  useEffect(() => {
+    let i = 0;
+    setDelayedPosts([]);
+    const interval = setInterval(function() {
+      if (i < posts.length) {
+        setDelayedPosts((existingDelayedPosts) => {
+          return [...existingDelayedPosts, posts[existingDelayedPosts.length]];
+        });
+        i++;
+      } else {
+        clearInterval(interval);
+      }
+    }, 250);
+
+    return () => {
+      clearInterval(interval);
+    }
+  }, [posts]);
+
 
   const handleChange = (event) => {
     const userInput = { ...filter };
@@ -189,8 +205,8 @@ const PostList = () => {
         </div>
         </div>
       <ul className={` ${isColumn ? "column" : "row"}`}>
-        {posts &&
-          posts.map((post, index) => (
+        {delayedPosts &&
+          delayedPosts.map((post, index) => (
             <div className="HomePosts" key={index}>
               <Link key={post._id} to={`/listing/${post._id}`}>
               <div className="images">
