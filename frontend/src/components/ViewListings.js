@@ -61,7 +61,6 @@ const PostList = () => {
           setPosts(delayedPosts);
         }, 250*(i+1));
       }
-      setPosts(delayedPosts);
     } catch (err) {
       console.error(err);
     }
