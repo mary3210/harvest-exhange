@@ -57,6 +57,7 @@ const PostList = () => {
       for (let i=0; i < allPosts.length; i++) {
         setTimeout(function(){
           delayedPosts.push(allPosts[i]);
+          console.log(delayedPosts);
           setPosts(delayedPosts);
         }, 250*(i+1));
       }
