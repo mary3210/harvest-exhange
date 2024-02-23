@@ -10,6 +10,7 @@ import 'swiper/css';
 import 'swiper/css/free-mode';
 import  CustomSelect  from '../hooks/CustomSelect.jsx'
 
+     
 const PostList = () => {
   const [posts, setPosts] = useState([]);
   const [filter, setFilter] = useState({
@@ -52,7 +53,14 @@ const PostList = () => {
       const response = await fetch(process.env.REACT_APP_LOCAL_URL + "/listing");
       const allPosts = await response.json();
       console.log(allPosts);
-      setPosts(allPosts);
+      let delayedPosts = [];
+      for (let i=0; i < allPosts.length; i++) {
+        setTimeout(function(){
+          delayedPosts.push(allPosts[i]);
+          setPosts(delayedPosts);
+        }, 250*(i+1));
+      }
+      setPosts(delayedPosts);
     } catch (err) {
       console.error(err);
     }
@@ -62,7 +70,6 @@ const PostList = () => {
       e.preventDefault();
       const filteredResponse = await fetch(process.env.REACT_APP_LOCAL_URL + "/listing?" + new URLSearchParams(filter).toString());
       const allFilteredPosts = await filteredResponse.json();
-      console.log(allFilteredPosts);
       setPosts(allFilteredPosts);
     } catch (err) {
       console.error(err);

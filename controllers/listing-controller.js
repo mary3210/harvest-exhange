@@ -46,16 +46,6 @@ router.get("/", async (req, res) => {
         }
     }
 
-// filtering price - says the max price of the collection and the starting price of the collection
-// const filteredPrice = Listing.aggregate([ 
-//   { "$group": { 
-//       "_id": null,
-//       "max": { "$max": "$price" }, 
-//       "min": { "$min": "$price" } 
-//   }}
-// ])
-
-
     //checks if filter object has zipcoords and category. If category exists in the req.query(url) add category key along with value from the query
     filter = {
         ...filter,

@@ -35,11 +35,11 @@ const ListingSchema = new mongoose.Schema(
             coordinates: {
                 type: [Number]
             }
-        },
-        expireAt : {
-            type: Date,
-            default: new Date(new Date().setDate(new Date().getDate() + 14)) //expires in 7 days
         }
+        // expireAt : {
+        //     type: Date,
+        //     default: new Date(new Date().setDate(new Date().getDate() + 14)) //expires in 7 days
+        // }
     },
     { timestamps: true }  //Creates an update and created at pathway 
 );

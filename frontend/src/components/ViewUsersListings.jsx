@@ -67,7 +67,7 @@ function ViewUsersListings() {
       };
 
     return (
-        <div>
+        <div className="homeContainer">
             <h1>Here are my listings that I have made</h1>
             <ul>
                 {post &&
@@ -76,7 +76,7 @@ function ViewUsersListings() {
                             
                             <div>
                                 <h1>{post?.title}</h1>
-                                <img src={post?.image} alt={post?.tags} />
+                                <img loading="lazy" src={post?.image} alt={post?.tags} />
                                 <p>Location: {post?.location}</p>
                                 <p>Price: {post?.price}</p>
                                 <p>{post?.text}</p>
