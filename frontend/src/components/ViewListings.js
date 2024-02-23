@@ -59,7 +59,7 @@ const PostList = () => {
           delayedPosts.push(allPosts[i]);
           console.log(delayedPosts);
           setPosts(delayedPosts);
-        }, 250*(i+1));
+        }, 500*(i+1));
       }
     } catch (err) {
       console.error(err);
