@@ -52,19 +52,17 @@ const PostList = () => {
     try {
       const response = await fetch(process.env.REACT_APP_LOCAL_URL + "/listing");
       const allPosts = await response.json();
-      console.log(allPosts);
-      let delayedPosts = [];
+      setPosts(() => []);
       for (let i=0; i < allPosts.length; i++) {
         setTimeout(function(){
-          delayedPosts.push(allPosts[i]);
-          console.log(delayedPosts);
-          setPosts(delayedPosts);
-        }, 500*(i+1));
+          setPosts((previousPosts) => [...previousPosts, allPosts[i]]);
+        }, 250*(i+1));
       }
     } catch (err) {
       console.error(err);
     }
   };
+
   async function DoFilterTask(e) {
     try {
       e.preventDefault();
@@ -75,6 +73,7 @@ const PostList = () => {
       console.error(err);
     }
   }
+
   useEffect(() => {
     getPosts();
   }, []);
