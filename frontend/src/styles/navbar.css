@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Raleway&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Raleway&display=swap");
 
 .navbar.wrapper {
     width: 100%;
@@ -13,7 +13,7 @@
     flex-wrap: nowrap;
     flex-direction: row;
     justify-content: space-between;
-    background-color: white;
+    background-color: #fdfbfe;
     padding: 0px 25px 0px 25px;
     border-bottom: solid 1px #e5e7eb;
 }
@@ -22,27 +22,45 @@
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    gap: 50px;
+    gap: 40px;
+    min-height: 51px;
+    padding-bottom: 10px;
+    margin-left: 30px;
 }
 
 .box2 {
     display: flex;
-    justify-content: flex-end;  
+    justify-content: flex-end;
+    min-height: 51px;
+    padding-bottom: 10px;
+    margin-left: auto;
+    padding-left: 12px;
 }
 
 .navbar a {
     text-decoration: none;
     position: relative;
-    font-family: 'Raleway', cursive;
+    font-family: "Raleway", cursive;
     color: black;
-    line-height: 50px;
-    
+    height: 100%;
+    flex-wrap: wrap;
+    display: flex;
+    align-items: end;
 }
 
-.navbar a:before {
+.box1 a,
+.box2 a {
+    font-size: 18px;
+}
+
+div#contact {
+    display: flex;
+}
+.box1 a:before,
+.box2 a:before {
     content: "";
     position: absolute;
-    bottom: 8px;
+    bottom: -3px;
     height: 2px;
     width: 100%;
     background: #aedd99;
@@ -59,21 +77,20 @@
     transform: scaleX(1);
 }
 
-.navMenu{
-    display:none;
+.navMenu {
+    display: none;
 }
 
 navbar a:hover {
- color: white;
+    color: white;
 }
-
 
 .navMenu a.active {
     position: relative;
 }
 
 .hidden-nav-link {
-    font-size: 25px;;
+    font-size: 25px;
 }
 
 .navMenu a.active::before {
@@ -88,69 +105,94 @@ navbar a:hover {
     height: var(--nav-bar-height);
 }
 
-@media screen and (max-width: 705px){
-    
-
-    .navMenu{
-        position:relative;
-        display:inline-block;
-        
-        
-    }
-    .navMenu svg{
-       min-height: 50px;
-       min-width: 50px; 
+@media screen and (max-width: 1021px) {
+    .box1 {
+        gap: 12px;
     }
 
-    .navbar.wrapper{
-        display:flex;
+    .box1 a,
+    .box2 a {
+        font-size: 16px;
+        white-space: nowrap;
+    }
+
+    span.Headertitle {
+        font-size: 22px;
+    }
+}
+
+@media screen and (max-width: 705px) {
+    .homeBanner {
+        padding-top: 50px;
+        padding-bottom: 50px;
+        max-height: 0px;
+    }
+
+    .flex-container {
+        width: 100%;
+    }
+
+    .navbar .box1 .nav-link,
+    .box2 {
+        display: none;
+    }
+    .navMenu {
+        position: relative;
+        display: inline-block;
+    }
+    .navMenu svg {
+        min-height: 50px;
+        min-width: 50px;
+    }
+
+    .navbar.wrapper {
+        display: flex;
         flex-direction: row-reverse;
         padding-top: 5px;
         box-sizing: border-box;
     }
 
-    .flex-container{
+    .flex-container {
         border-bottom: 1px solid white;
     }
 
-   :root{
-    --nav-bar-height:70px;
-   }
-    .dropdown1{
-        display:block;
+    :root {
+        --nav-bar-height: 70px;
+    }
+    .dropdown1 {
+        display: block;
         position: fixed;
-        top: 55px;
-        z-index: 1000; 
+        top: 54px;
+        z-index: 1000;
         width: 100vw;
         height: 100vh;
-        right:-37px;
+        right: -37px;
         background-color: #aedd99;
-
     }
     .dropdown1 li {
         list-style: none;
-        display:block;
+        display: block;
         z-index: 1000;
     }
     .nav-link {
-        display:none;
+        display: none;
     }
     .navbar a:before {
         display: none;
+        background: none;
     }
-    
+
     .dropdown1 a:hover {
-       color: antiquewhite;
+        color: antiquewhite;
     }
-    
+
     img {
         width: 100%;
-        height:350px;
+        height: 350px;
     }
-    
+
     .HomePosts {
-        max-width:300px;
-        
+        max-width: 300px;
     }
 
     ul.column {
@@ -161,7 +203,5 @@ navbar a:hover {
     .HomePosts h1 {
         display: flex;
         max-width: 270px;
-
-}
-   
+    }
 }

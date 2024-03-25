@@ -9,8 +9,9 @@ import { FreeMode } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/free-mode';
 import  CustomSelect  from '../hooks/CustomSelect.jsx'
+import { FaToggleOn } from "react-icons/fa";
+import { LiaToggleOffSolid } from "react-icons/lia";
 
-     
 const PostList = () => {
   const [posts, setPosts] = useState([]);
   const [delayedPosts, setDelayedPosts] = useState([]);
@@ -116,7 +117,9 @@ const PostList = () => {
     <div className="homeBanner"><h2>The Market</h2></div>
     <div className="Home">
       
-      <div className="everythingbar">
+      
+      <ul className={` ${isColumn ? "column" : "row"}`}>
+      <div className="everythingbar desktopeverythingbar">
       <div className="Searchbar">
         <div className="iconContainer">
           <div className="slens" id="searchIcon" onClick={toggleSearchForm}><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M17.5556 3C19.4579 3 21 4.54213 21 6.44444V17.5556C21 19.4579 19.4579 21 17.5556 21H6.44444C4.54213 21 3 19.4579 3 17.5556V6.44444C3 4.54213 4.54213 3 6.44444 3H17.5556Z" stroke="#000000" strokeWidth="2"></path> <path fillRule="evenodd" clipRule="evenodd" d="M11.5067 7.01392C9.02527 7.01392 7.01367 9.02551 7.01367 11.5069C7.01367 13.9884 9.02527 16 11.5067 16C12.3853 16 13.205 15.7478 13.8973 15.3119L15.1658 16.5803C15.5563 16.9709 16.1895 16.9709 16.58 16.5803C16.9705 16.1898 16.9705 15.5566 16.58 15.1661L15.3116 13.8977C15.7475 13.2053 15.9997 12.3856 15.9997 11.5069C15.9997 9.02551 13.9881 7.01392 11.5067 7.01392ZM9.01367 11.5069C9.01367 10.1301 10.1298 9.01392 11.5067 9.01392C12.8836 9.01392 13.9997 10.1301 13.9997 11.5069C13.9997 12.8838 12.8836 14 11.5067 14C10.1298 14 9.01367 12.8838 9.01367 11.5069Z" fill="#000000"></path> </g></svg></div>
@@ -204,13 +207,12 @@ const PostList = () => {
      
       </div>
       <div className="columnIconContainer">
-        <div className={`listingsArrangement ${isColumn ? "column" : "row"}`} onClick={toggleColumn}>{ isColumn ? <TbGridDots /> :<BiDotsVertical />}</div>
+        <div className={`listingsArrangement ${isColumn ? "column" : "row"}`} onClick={toggleColumn}>{ isColumn ? <FaToggleOn />:<LiaToggleOffSolid />}</div>
         </div>
         </div>
-      <ul className={` ${isColumn ? "column" : "row"}`}>
         {delayedPosts &&
           delayedPosts.map((post, index) => (
-            <div className="HomePosts" key={index}>
+            <div className="HomePosts grow" key={index}>
               <Link key={post._id} to={`/listing/${post._id}`}>
               <div className="images">
                   <img alt={post.tags} src={post.image} />

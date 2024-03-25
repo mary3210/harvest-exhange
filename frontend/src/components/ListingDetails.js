@@ -6,7 +6,6 @@ import myStyles from "../styles/ListingDetails.css";
 const ListingDetails = (props) => {
     const [post, setPost] = useState(null);
     const { id } = useParams();
-
     const getPost = useCallback(
         async () => {
             try {

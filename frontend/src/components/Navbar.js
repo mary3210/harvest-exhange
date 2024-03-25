@@ -38,8 +38,9 @@ function Navbar() {
 
   return (
     <nav className="navbar wrapper">
-      <Header />
+      {/* <Header /> */}
       <div className="flex-container">
+        <Header/>
         <div className="box1">
             {navLinks.map((link) => (         
             <NavLink to={link.to} className="nav-link">
@@ -69,7 +70,7 @@ function Navbar() {
               )}
             </div>
         </div>
-
+           
         <div className="box2">
           {loggedin ? (
             <NavLink to="/logout" className="nav-link">

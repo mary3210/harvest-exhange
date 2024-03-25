@@ -1,23 +1,41 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Raleway&display=swap');
 .Header {
     display: flex;
-    background-color: white;
+    background-color: #fdfbfe;
     justify-content: center;
     font-size: 25px;
     font-family: 'Montserrat', sans-serif;
-    height: 50px;
-    width: 100%;
-    padding-top:20px;
+    align-self: center;
 }
 
-.Header svg{
-    padding-left: 6px;
+
+
+span.Headertitle {
+    text-transform: uppercase;
+    background: linear-gradient(32deg, #99ddc8, #99aedd, #c899dd);
+    -webkit-background-clip: text;
+    color: transparent;
+    font-weight: 700;
 }
+
+.Header svg {
+    padding-left: 6px;
+    color: #99ddc8;
+    bottom: 10px;
+}
+
 
 @media screen and (max-width: 705px){
     .Header{
         padding-top: 0px;
         text-align: center;
-        padding-right: 82px;
+        margin: auto;
+    }
+}
+
+@media screen and (max-width: 439px){
+.Header {
+    display: block;
+    font-size: 20px;
     }
 }

@@ -1,12 +1,15 @@
 
 
 :root {
-    --nav-bar-height: 121px;
+    --nav-bar-height: 62px;
 }
+
+
+
 
 @media screen and (min-width: 706px) {
     :root {
-        --nav-bar-height: 121px;
+        --nav-bar-height: 62px;
     }
     
 }
@@ -47,6 +50,14 @@ body{
     border-radius: 7px;
     box-shadow: 0 6px 68px -6px rgba(0,0,0,.09);
     animation: fadeIn 0.5s;
+}
+.grow {
+    transition: all .2s ease-in-out;
+}
+
+.grow:hover {
+    -webkit-transform: scale(1.02);
+    transform: scale(1.02);
 }
 
 .images {
@@ -103,12 +114,17 @@ ul.column {
     padding: 0;
     margin: auto;
     max-width: 1290px;
+    overflow: hidden;
 }
 
 ul.row {
-    display:flex;
+    display: flex;
     flex-direction: column;
-    align-items:center;
+    align-items: center;
+    padding: 0;
+    max-width: 1290px;
+    overflow: hidden;
+    margin: 0 auto;
 }
 
 .columnIconContainer {
@@ -141,6 +157,9 @@ ul.row {
     font-size: 20px;
 
 }
+.responsiveeverythingbar {
+    display: none;
+}
 
 .homeBanner h2 {
     margin-bottom: 5px;
@@ -152,6 +171,28 @@ ul.row {
 
 @media screen and (max-width:1289px) {
     ul.column {
-        max-width: 860px;
+        max-width: 100vw;
+        display:flex;
+        justify-content: center;
+}
+        
+    
+
+    /* .desktopeverythingbar{
+        display:none;
+    } */
+
+    .responsiveeverythingbar{
+        display:flex;
     }
+}
+
+@media screen and (max-width: 859px){
+ul.column {
+    justify-content: center;
+}
+.columnIconContainer svg {
+    
+    display:none;
+}
 }
