@@ -34,13 +34,17 @@ const ListingDetails = (props) => {
             <div className="listingDetailImage">
             <img src={post?.image} alt={post?.tags} />
             </div>
+            <div className="listingDetailContainer">
             <div className="listingDetailInfo">
+              <div className="listingDetailHeader">
             <h1>{post?.title}</h1>
+            </div>
             <p>Location: {post?.location}</p>
             <p>${post?.price} per {post?.unit}</p>
             <p><b>Plant/Produce/Seed:</b> {post?.category} </p>
             <h2>Description</h2>
             <p>{post?.text}</p>
+            </div>
             </div>
           </div>
         ))}
