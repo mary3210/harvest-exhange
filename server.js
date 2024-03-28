@@ -18,7 +18,7 @@ app.use(
 );
 
 app.use("/user", userController);
-app.use("/listing", listingController)
+app.use("/services/listing", listingController)
 
 let passageConfig = {
   appID: "YOUR_APP_ID",

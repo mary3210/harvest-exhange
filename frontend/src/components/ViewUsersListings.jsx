@@ -40,7 +40,7 @@ function ViewUsersListings() {
 
     async function handleDeleteConfirm(postId) {
         try {
-            await fetch(process.env.REACT_APP_LOCAL_URL + `/listing/${postId}`, {
+            await fetch(process.env.REACT_APP_LOCAL_URL + `/services/listing/${postId}`, {
                 method: "DELETE",
                 headers: {
                     "Content-Type": "application/json",

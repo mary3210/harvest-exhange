@@ -4,9 +4,8 @@
     background-color: #c899dd30;
     align-items: center;
     height: calc(100vh - var(--nav-bar-height));
+    overflow: scroll;
 }
-
-
 
 .listingDetailsPage {
     display: flex;
@@ -17,7 +16,8 @@
     max-width: 1231px;
     align-items: center;
     background-color: #fcf7fe;
-    
+    min-height: 580px;
+    border-radius: 1%;   
 }
 
 .listingDetailImage {
@@ -31,9 +31,10 @@
 
 
 .listingDetailImage img {
-    height: 400px;
-    width: 500px;
+    height: 436px;
+    width: 100%;
 }
+
 .listingDetailContainer {
     display: flex;
     justify-content: flex-start;
@@ -87,22 +88,24 @@
         display: flex;
         justify-content: space-between;
         background-color: white;
-        margin: 0 auto;
+        margin: auto;
         height: 50%;
         max-width: 1231px;
         align-items: center;
         background-color: #fcf7fe;
         flex-direction: column;
+        min-height: 756px;
     }
     .listingDetailContainer {
         display: flex;
         justify-content: flex-start;
         margin-top: 41px;
         background-color: #fcf7fe;
-        height: 67%;
+        height: 49%;
         border-radius: 4%;
         padding-right: 45px;
         padding-left: 42px;
+        padding-bottom: 10px;
     }
 }
 
@@ -112,9 +115,11 @@
         overflow: scroll;
     }
     .listingDetailsPage{
-        width: 75%;
-        min-height: 749px;
+        width: 95%;
+        min-height: 706px;
+        margin-top: 10px;   
     }
+
     .listingDetailInfo{
         min-width:300px;
     }
@@ -122,6 +127,8 @@
         min-width: 193px;
     }
     .listingDetailImage img {
-        width: 95%;
+        width: 100%;
+        height: 100%;
+    
     }
 }

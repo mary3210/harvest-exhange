@@ -9,7 +9,7 @@ const ListingDetails = (props) => {
     const getPost = useCallback(
         async () => {
             try {
-                const response = await fetch(process.env.REACT_APP_LOCAL_URL + `/listing/${id}`);
+                const response = await fetch(process.env.REACT_APP_LOCAL_URL + `/services/listing/${id}`);
                 const result = await response.json();
                 console.log(result);
                 console.log(id);

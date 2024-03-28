@@ -53,7 +53,7 @@ const PostList = () => {
   const getPosts = async (e) => {
     try {
       e?.preventDefault();
-      const response = await fetch(process.env.REACT_APP_LOCAL_URL + "/listing?" + new URLSearchParams(filter).toString());
+      const response = await fetch(process.env.REACT_APP_LOCAL_URL + "/services/listing?" + new URLSearchParams(filter).toString());
       const allPosts = await response.json();
       setPosts(allPosts);
     } catch (err) {
