@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { UserContext } from "../hooks/UserContext";
 import { Link } from "react-router-dom";
 import DelQuestBox from "./DelQuestBox";
+import myStyles from "../styles/ViewUsersListing.css"
 
 function ViewUsersListings() {
     const [post, setPost] = useState([]);
@@ -13,7 +14,7 @@ function ViewUsersListings() {
     useEffect(() => {
         async function getPost() {
             try {
-                const response = await fetch(process.env.REACT_APP_LOCAL_URL + `/listing/user/${user._id}`);
+                const response = await fetch(process.env.REACT_APP_LOCAL_URL + `/services/listing/user/${user._id}`);
                 const result = await response.json();
                 setShowDeleteConfirmation(Array(result.length).fill(false));
                 setPost(result);
@@ -67,36 +68,50 @@ function ViewUsersListings() {
       };
 
     return (
-        <div className="homeContainer">
-            <h1>Here are my listings that I have made</h1>
+        <div className="UserListingsContainer">
+            <h1>My Listings</h1>
             <ul>
                 {post &&
                     post.map((post, index) => (
-                        <div className="HomePosts" key={index}>
-                            
-                            <div>
-                                <h1>{post?.title}</h1>
+                        <div>
+                        <div className="deletecontainer">
+                        {showDeleteConfirmation[index] && (
+                            <DelQuestBox
+                            onConfirm={() => handleDeleteConfirm(post._id)}
+                            onCancel={handleDeleteCancel}/>
+                        )}
+                         </div>
+                        <div className="UserListingsPosts" key={index}>
+
+                            <div className="UserListingInfo">
+                                <div className="UsersListingImg">
                                 <img loading="lazy" src={post?.image} alt={post?.tags} />
+                                </div>
+                                <div className="UsersListingContent">
+                                <h1>{post?.title}</h1>
                                 <p>Location: {post?.location}</p>
                                 <p>Price: {post?.price}</p>
                                 <p>{post?.text}</p>
-                            </div>
+                                </div>
+                                <div className="userlistingbtns">
+                            <div className="editbtn">
                             <Link to={`../Listing/EditListing/${post._id}`}>Edit</Link>
+                            </div>
                             <button
                                 className="deleteBtn"
                                 onClick={()=>handleDeleteClick(post._id)}
                                 
                             >
-                                delete
+                                Delete
                             </button>
-                            {showDeleteConfirmation[index] && (
-                                <DelQuestBox
-                                onConfirm={() => handleDeleteConfirm(post._id)}
-                                onCancel={handleDeleteCancel}/>
-                            )}
+                           
+                        </div>
+                            </div>
                             
                         </div>
+                        </div>
                     ))}
+                   
             </ul>
         </div>
     );

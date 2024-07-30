@@ -67,7 +67,7 @@ function CreateListing() {
                 },
                 body: JSON.stringify(currentState),
             };
-            const response = await fetch(process.env.REACT_APP_LOCAL_URL + "/listing", requestOptions);
+            const response = await fetch(process.env.REACT_APP_LOCAL_URL + "/services/listing", requestOptions);
             const newPost = await response.json();
             setPostform([...post, newPost]);
             navigate("/");
@@ -78,15 +78,16 @@ function CreateListing() {
 
     return (
         <div className="createListingPage">
-            <section>
+            <section className="createsection">
                 <h2>Create New Listing</h2>
                 <div >
                     <br />
-                    <form onSubmit={handleSubmit}>
+                    <form className=" createform" onSubmit={handleSubmit}>
                         <br />
                         <div className="titleInput">
                             <label>
-                                Title:
+                                Title
+                                <br />
                                 <input
                                     type="text"
                                     id="title"
@@ -101,7 +102,8 @@ function CreateListing() {
                         <br />
                         <div className="zipcodeInput">
                             <label>
-                                zipcode:
+                                Zipcode
+                                <br />
                                 <input
                                     type="text"
                                     id="zipcode"
@@ -121,21 +123,10 @@ function CreateListing() {
                                 <div style={{ color: 'red' }}>{imageError}</div>
                             </label>
                         </div>
-                        <div className="txtInput">
-                            <label>
-                                Description:
-                                <textarea
-                                    type="text"
-                                    id="details"
-                                    name="text"
-                                    placeholder="Enter Description"
-                                    value={postForm.text}
-                                    onChange={handleChange}
-                                ></textarea>
-                            </label>
-                        </div>
+                       
                         <br />
-                        Category:
+                        Category
+                        <br />
                         <select
                             name="category"
                             id="category"
@@ -149,6 +140,7 @@ function CreateListing() {
                         <br />
                         <label htmlFor="price">
                             If not swapping for items what price?
+                            <br />
                         </label>
                         <input
                             type="Number"
@@ -157,7 +149,7 @@ function CreateListing() {
                             min="0"
                             onChange={handleChange2}
                         ></input>
-                        per:
+                        per
                         <select
                             name="unit"
                             id="unit"
@@ -172,6 +164,22 @@ function CreateListing() {
                             <option value="flat">flat</option>
                             <option value="dozen">dozen</option>
                         </select>
+                        <div className="txtInput">
+                            <label>
+                                Description:
+                                <br />
+                                <textarea
+                                    type="text"
+                                    id="details"
+                                    name="text"
+                                    rows="5"
+                                    cols="55"
+                                    placeholder="Enter Description"
+                                    value={postForm.text}
+                                    onChange={handleChange}
+                                ></textarea>
+                            </label>
+                        </div>
                         <div>
                             <div className="btn postbtn1">
                                 <input

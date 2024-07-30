@@ -3,3 +3,30 @@
     display:flex;
     justify-content: center;
 }
+
+.createsection{
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    flex-direction: column;
+    background-color: lightgrey;
+    margin-top: 50px;
+}
+
+.createform {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+
+}
+
+.btn.postbtn1 {
+    display: flex;
+    justify-content: center;
+}
+
+.createsection h2 {
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: center;
+}

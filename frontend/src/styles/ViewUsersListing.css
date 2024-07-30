@@ -1,0 +1,151 @@
+@property --gradient-angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+
+.UserListingsContainer {
+    height: calc(100vh - var(--nav-bar-height));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: scroll;
+    background-color: #f8ecfc;
+}
+
+
+.UserListingsContainer ul {
+    display: flex;
+    max-width: 1500px;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.UserListingsPosts {
+    margin: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* box-shadow: 0px 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+    position:relative;
+    border-radius: 1%;
+    background-color: #fcf7fe;
+    margin-bottom: 50px;
+    position: relative;
+    z-index: 1;
+}
+
+
+.UserListingsPosts::before,
+.UserListingsPosts::after {
+    content: "";
+    position:absolute;
+    inset: -.5rem;
+    background: conic-gradient(from var(--gradient-angle), #aedd99, #99ddc8, #99aedd, #c899dd, #99aedd, #99ddc8, #aedd99);
+    border-radius: inherit;
+    animation: rotation 3s linear infinite;
+    z-index: -1;
+}
+
+
+.UserListingsPosts::after{
+    filter: blur(0.3rem);
+}
+
+
+.UserListingInfo {
+    z-index: 2;
+    background-color: #fcf7fe;
+    height: 100%;
+}
+.UsersListingImg {
+    display: flex;
+    width: 100%;
+    max-height: 400px;
+}
+
+.UsersListingContent {
+    max-width: 391px;
+    padding: 10px;
+}
+
+img {
+    height: auto;
+    border-radius: 2px 2px 0px 0px;
+}
+
+.userlistingbtns {
+    display: flex;
+    margin-bottom:15px;
+    justify-content: center;
+}
+.editbtn {
+    padding: 4px;
+    border-radius: 6px;
+    background-color: #68c474;
+    width: 42px;
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.editbtn:hover{
+    background-color: #a4dcac;
+}
+.editbtn a {
+    text-decoration: none;
+    color: white;
+}
+
+button.deleteBtn {
+    width: 50px;
+    border: none;
+    background-color: #Ee2626;
+    width: 58px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    font-family: sans-serif;
+    font-size: 16px;
+    color: white;
+}
+button.deleteBtn:hover {
+    background-color: #f36767;
+}
+
+
+.deletecontainer {
+    z-index: 12;
+    position: relative;
+}
+
+input[value="Cancel"] {
+    border: none;
+    background-color: #a09ca4;
+    height: 25px;
+    border-radius: 3px;
+    color: white;
+}
+
+input[value="Cancel"]:hover {
+    background-color: #c6c4c8
+}
+
+
+input[value="Confirm"] {
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    height: 25px;
+    margin-left: 10px;
+}
+
+input[value="Confirm"]:hover {
+    background-color: #ff4f4f;
+}
+@keyframes rotation {
+    0% { --gradient-angle: 0deg; }
+    100% { --gradient-angle: 360deg; }
+}

@@ -20,8 +20,8 @@ function DelQuestBox({onConfirm, onCancel}) {
         <div id="deleteBox">
             <p>Are you sure you would like to delete this listing?</p>
             <div>
-                <input type="button" name="deleteOption" value="Cancel" onClick={handleCancel}/>
-                <input type="button" name="deleteOption" value="Confirm" onClick={handleConfirm}/>
+                <input type="button" name="deleteOption" value="Cancel" class="delete" onClick={handleCancel}/>
+                <input type="button" name="deleteOption" value="Confirm" clas="confirm" onClick={handleConfirm}/>
             </div>
         </div>
     </div>

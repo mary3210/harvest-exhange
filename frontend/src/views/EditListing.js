@@ -11,7 +11,7 @@ function EditListing(props) {
     const [titleError, setTitleError] = useState('');
     const { id } = useParams();
     const { data } = props;
-    const URL = process.env.REACT_APP_LOCAL_URL + '/listing/';
+    const URL = process.env.REACT_APP_LOCAL_URL + '/services/listing/';
     const [editForm, setEditForm] = useState({
         title: "",
         text: "",
